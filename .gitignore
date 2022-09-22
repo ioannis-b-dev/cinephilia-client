@@ -17,8 +17,8 @@
 .env.test.local
 .env.production.local
 .env
-mynotes.md
-README.md
+.mynotes.md
+.README.md
 
 npm-debug.log*
 yarn-debug.log*
