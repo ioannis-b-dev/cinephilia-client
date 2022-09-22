@@ -1,0 +1,16 @@
+//Filter all film lists
+
+const myFilmLists= useSelector((state) =>
+        user ? state.posts.filter((list) => list.creator === currentId) : null
+    );
+
+
+{/* {user?.userObject?.sub === creator && ( */}
+
+FOR GOOGLE:
+    creator : user?.userObject?.sub
+
+FOR CUSTOM LOGIN:
+    creator : user?.userObject?._id  
+
+

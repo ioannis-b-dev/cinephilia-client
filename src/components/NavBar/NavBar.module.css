@@ -1,0 +1,57 @@
+.navMain {
+    background-color: black;
+}
+
+.navLogo {
+    width: 50px;
+    height: 50px;
+    color: #950740;
+}
+
+.navTitle {
+    color: white;
+    margin-left: 1em;
+    font-size: larger;
+}
+
+.loggedInUser {
+    font-weight: bold;
+    color: white;
+    font-size: medium;
+    margin-right: 1em;
+}
+
+.myBtn {
+    background-color: var(--clr-btn-bg-2);
+    color: var(--clr-btn-text-1);
+    border: var(--clr-btn-border-2);
+    margin-left: 1em;
+}
+
+.myBtn:hover {
+    background-color: var(--clr-btn-hover-bg-2);
+    color: var(--clr-btn-text-1);
+    border: var(--clr-btn-hover-border-2);
+}
+
+.myBtn:hover > a {
+    color: var(--clr-btn-hover-text-1);
+    background-color: var(--clr-btn-hover-bg-2);
+}
+
+.myBtn > a {
+    color: var(--clr-btn-text-1);
+}
+
+.logoutBtn {
+    background-color: #950740;
+    color: #1a1a1d;
+    border: 2px solid #1a1a1d;
+    margin-left: 1em;
+}
+
+.logoutBtn:hover {
+    background-color: var(--clr-btn-hover-bg-2);
+    color: var(--clr-btn-hover-text-1);
+    border: 2px solid #ffffff;
+}
