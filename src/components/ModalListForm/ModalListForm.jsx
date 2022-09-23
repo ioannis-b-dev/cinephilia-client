@@ -10,7 +10,7 @@ function ModalListForm() {
                 showModalListForm && styles.showModal
             }`}
         >
-            <div className={styles.modalContainer}>
+            <div className={`rounded ${styles.modalContainer}`}>
                 <div className={styles.modalHeader}>
                     <h3>Create a List</h3>
                     <button

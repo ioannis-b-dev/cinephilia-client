@@ -16,7 +16,7 @@ const ListForm = () => {
     const isInitialLoad = useRef(false);
     const dispatch = useDispatch();
     const { closeFilmsModal, currentId, setCurrentId } = useGlobalContext();
-    const { submitRequest, movieData, isLoading } = useImdbAPI();
+    const { submitRequest, movieData, isLoading, isError } = useImdbAPI();
     const currentFilmList = useSelector((state) =>
         currentId ? state.posts.find((list) => list._id === currentId) : null
     );
@@ -133,7 +133,11 @@ const ListForm = () => {
             </Form.Group>
 
             {/* Movie Search*/}
-            <SearchAPI getMovieData={handleRequest} isLoading={isLoading} />
+            <SearchAPI
+                getMovieData={handleRequest}
+                isLoading={isLoading}
+                isError={isError}
+            />
 
             {/* Current Movies List*/}
             {filmListData.films.length > 0 && (

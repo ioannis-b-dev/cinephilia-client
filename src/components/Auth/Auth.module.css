@@ -13,10 +13,9 @@
     text-align: center;
     font-size: 0.7rem;
     border-radius: 0.25rem;
-    letter-spacing: var(--spacing);
     text-transform: capitalize;
-    color: #721c24;
-    background: #f8d7da;
+    color: white;
+    background: #721c24;
 }
 
 .myBtn {

@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import styles from "./SearchAPI.module.css";
 import Loader from "../../Loader";
-const SearchAPI = ({ getMovieData, isLoading }) => {
+const SearchAPI = ({ getMovieData, isLoading, isError }) => {
     const [searchMovie, setSearchMovie] = useState("");
+    const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchMovie || searchMovie === "") return;
-        getMovieData(searchMovie);
+        await getMovieData(searchMovie);
         setSearchMovie("");
+        if (isError) {
+            setAlert({
+                show: true,
+                msg: isError,
+                type: "danger",
+            });
+        }
     };
 
+    useEffect(() => {
+        if (alert.show) {
+            const timeout = setTimeout(() => {
+                setAlert({ show: false, msg: "" });
+            }, 3000);
+            return () => clearTimeout(timeout);
+        }
+    }, [alert]);
     return (
         <>
             <Form.Group className={styles.formGroupContainer}>
@@ -35,6 +51,16 @@ const SearchAPI = ({ getMovieData, isLoading }) => {
                     SEARCH
                 </Button>
             )}
+
+            <div
+                className={`text-center rounded ${
+                    alert.type === "success"
+                        ? styles.alertSuccess
+                        : styles.alertDanger
+                }`}
+            >
+                {alert.msg}
+            </div>
         </>
     );
 };

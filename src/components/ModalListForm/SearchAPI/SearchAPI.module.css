@@ -17,3 +17,13 @@
 .myBtn > a {
     color: var(--clr-btn-text-1);
 }
+
+.alertDanger {
+    background-color: red;
+    color: white;
+}
+
+.alertSuccess {
+    background-color: green;
+    color: white;
+}

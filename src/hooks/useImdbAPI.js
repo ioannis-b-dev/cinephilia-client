@@ -7,11 +7,22 @@ const URL = `https://imdb-api.com/en/API/SearchMovie/${API_KEY}`;
 function useImdbAPI() {
     const [movieData, setMovieData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isError, setError] = useState(false);
 
     const getFilmDetails = async (search) => {
         const response = await axios(`${URL}/${search}`);
-        const { data } = response;
-        const { id, title, description, image } = data.results[0];
+        const {
+            data: { results },
+        } = response;
+
+        if (!results || results.length === 0) {
+            setIsLoading(false);
+            setError("Could not find film");
+
+            return;
+        }
+
+        const { id, title, description, image } = results[0];
         return { id, title, description, image };
     };
 
@@ -19,6 +30,7 @@ function useImdbAPI() {
         const URL = `https://imdb-api.com/en/API/ExternalSites/${API_KEY}/${ID}`;
         const response = await axios(URL);
         const { data } = response;
+
         return data.imDb.url;
     };
 
@@ -32,12 +44,12 @@ function useImdbAPI() {
 
     const submitRequest = async (search) => {
         setIsLoading(true);
-        const {
-            id,
-            title,
-            description: year,
-            image: filmPoster,
-        } = await getFilmDetails(search);
+        setError(false);
+
+        const response = await getFilmDetails(search);
+        if (!response) return;
+        const { id, title, description: year, image: filmPoster } = response;
+
         const youtubeTrailerLink = await getYoutubeTrailerLink(id);
         const urlImdb = await getImdbUrl(id);
         setIsLoading(false);
@@ -52,7 +64,7 @@ function useImdbAPI() {
         setMovieData(data);
     };
 
-    return { submitRequest, movieData, isLoading };
+    return { submitRequest, movieData, isLoading, isError };
 }
 
 export default useImdbAPI;
