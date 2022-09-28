@@ -1,0 +1,19 @@
+.app__auth {
+    background-color: #1a1a1d;
+    color: #950740;
+    border: 2px solid #950740;
+    max-width: 25vw;
+}
+
+.rwk__error {
+    margin-bottom: 1rem;
+    height: 1.25rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    border-radius: 0.25rem;
+    text-transform: capitalize;
+    color: white;
+    background: #721c24;
+}

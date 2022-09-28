@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import FilmCard from "../FilmCard";
+import FilmCard from "../FilmCard/FilmCard";
 import { Container, Button } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./FilmCarouselSwiper.module.css";
+import "./FilmsCarousel.scss";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -35,11 +35,11 @@ const FilmCarousel = ({ filmlist }) => {
     };
 
     return (
-        <Container className={`${styles.mainContainer} rounded`}>
+        <Container className="app__filmscarousel rounded">
             <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-end">
-                    <h1 className={styles.listTitle}>{title}</h1>
-                    <h4 className={styles.listCreator}>
+                    <h1 className="app__filmscarousel-title">{title}</h1>
+                    <h4 className="app__filmscarousel-creator">
                         created by {name || filmlist.userName}
                     </h4>
                 </div>
@@ -49,13 +49,13 @@ const FilmCarousel = ({ filmlist }) => {
                         user?.userObject?.sub === creator) && (
                         <>
                             <Button
-                                className={styles.myBtn}
+                                className="app__btn-primary"
                                 onClick={() => editFilmList(_id)}
                             >
                                 <GrEdit />
                             </Button>
                             <Button
-                                className={styles.myBtn}
+                                className="app__btn-primary"
                                 onClick={() => setModalShow(true)}
                             >
                                 <RiDeleteBinLine />
@@ -63,7 +63,7 @@ const FilmCarousel = ({ filmlist }) => {
                         </>
                     )}
 
-                    <Button className={styles.myBtn}>share</Button>
+                    <Button className="app__btn-primary">share</Button>
                 </div>
             </div>
 
@@ -75,7 +75,7 @@ const FilmCarousel = ({ filmlist }) => {
                     clickable: true,
                 }}
                 modules={[Pagination, Navigation]}
-                className={styles.swipperContainer}
+                className="p-0 m-0"
                 navigation={true}
                 breakpoints={{
                     640: {

@@ -1,10 +1,10 @@
 //react,styling
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import styles from "./ListForm.module.css";
+import "./ListForm.scss";
 //components
-import SearchAPI from "../SearchAPI";
-import FilmList from "../FilmList";
+import SearchAPI from "../SearchAPI/SearchAPI";
+import FilmList from "../FilmList/FilmList";
 
 //hooks
 import useImdbAPI from "../../../hooks/useImdbAPI";
@@ -112,12 +112,9 @@ const ListForm = () => {
     };
 
     return (
-        <Form
-            onSubmit={handleSubmit}
-            className={`${styles.formContainer} d-flex flex-column rounded  `}
-        >
+        <Form onSubmit={handleSubmit} className="app__listform rounded">
             {/* FILM LIST TITLE */}
-            <Form.Group className={styles.formGroupContainer}>
+            <Form.Group>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     type="text"
@@ -145,7 +142,7 @@ const ListForm = () => {
             )}
 
             <Button
-                className={`${styles.myBtn} align-self-center`}
+                className="app__btn-primary align-self-center"
                 variant="primary"
                 type="submit"
                 onClick={handleSubmit}

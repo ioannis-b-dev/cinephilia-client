@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FilmCarouselSwiper from "./FilmCarouselSwiper";
+import FilmsCarousel from "./FilmsCarousel/FilmsCarousel";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useGlobalContext } from "../../hooks/GlobalContext";
@@ -28,7 +28,7 @@ const FilmCategories = () => {
             {showMyLists
                 ? myFilmLists.map((filmlist) => {
                       return (
-                          <FilmCarouselSwiper
+                          <FilmsCarousel
                               filmlist={filmlist}
                               key={filmlist._id}
                           />
@@ -36,7 +36,7 @@ const FilmCategories = () => {
                   })
                 : filmLists.map((filmlist) => {
                       return (
-                          <FilmCarouselSwiper
+                          <FilmsCarousel
                               filmlist={filmlist}
                               key={filmlist._id}
                           />

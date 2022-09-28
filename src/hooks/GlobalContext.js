@@ -6,6 +6,14 @@ const AppProvider = ({ children }) => {
     const [currentFilm, setCurrentFilm] = useState(null);
     const [currentId, setCurrentId] = useState(null);
     const [showMyLists, setShowMyLists] = useState(false);
+    const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
+
+    const showAlert = (show = false, type = "", msg = "") => {
+        setAlert({ show, type, msg });
+    };
+    const removeAlert = () => {
+        setAlert({ show: false, type: "", msg: "" });
+    };
 
     const openMyListsModal = (film) => {
         setShowMyListsModal(true);
@@ -37,6 +45,9 @@ const AppProvider = ({ children }) => {
                 setShowMyLists,
                 showMyListsModal,
                 currentFilm,
+                alert,
+                showAlert,
+                removeAlert,
             }}
         >
             {children}

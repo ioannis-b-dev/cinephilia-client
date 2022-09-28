@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import FilmLists from "../components/FilmLists";
 import { getFilmLists } from "../actions/posts";
-import ModalListForm from "../components/ModalListForm";
-import MyListsModal from "../components/MyListsModal";
-function MainPage() {
+import { FilmLists, ModalListForm, MyListsModal } from "../components";
+
+const MainPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -12,12 +11,12 @@ function MainPage() {
     }, []);
 
     return (
-        <div className="mainpage-container">
+        <div className="app__main-page">
             <FilmLists />
             <ModalListForm />
             <MyListsModal />
         </div>
     );
-}
+};
 
 export default MainPage;

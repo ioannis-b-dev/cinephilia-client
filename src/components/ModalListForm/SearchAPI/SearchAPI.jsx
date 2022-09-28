@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
-import styles from "./SearchAPI.module.css";
-import Loader from "../../Loader";
+import Loader from "../../Loader/Loader";
+import Alert from "../../Alert/Alert";
 const SearchAPI = ({ getMovieData, isLoading, isError }) => {
     const [searchMovie, setSearchMovie] = useState("");
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
@@ -11,26 +11,24 @@ const SearchAPI = ({ getMovieData, isLoading, isError }) => {
         if (!searchMovie || searchMovie === "") return;
         await getMovieData(searchMovie);
         setSearchMovie("");
+    };
+
+    useEffect(() => {
         if (isError) {
             setAlert({
                 show: true,
                 msg: isError,
                 type: "danger",
             });
-        }
-    };
-
-    useEffect(() => {
-        if (alert.show) {
             const timeout = setTimeout(() => {
                 setAlert({ show: false, msg: "" });
             }, 3000);
             return () => clearTimeout(timeout);
         }
-    }, [alert]);
+    }, [isError]);
     return (
         <>
-            <Form.Group className={styles.formGroupContainer}>
+            <Form.Group>
                 <Form.Label>Search Films</Form.Label>
                 <Form.Control
                     type="text"
@@ -44,7 +42,7 @@ const SearchAPI = ({ getMovieData, isLoading, isError }) => {
                 <Loader />
             ) : (
                 <Button
-                    className={`${styles.myBtn} align-self-start`}
+                    className="app__btn-primary align-self-start"
                     type="submit"
                     onClick={handleSearch}
                 >
@@ -52,15 +50,7 @@ const SearchAPI = ({ getMovieData, isLoading, isError }) => {
                 </Button>
             )}
 
-            <div
-                className={`text-center rounded ${
-                    alert.type === "success"
-                        ? styles.alertSuccess
-                        : styles.alertDanger
-                }`}
-            >
-                {alert.msg}
-            </div>
+            {alert.show && <Alert msg={alert.msg} type={alert.type} />}
         </>
     );
 };

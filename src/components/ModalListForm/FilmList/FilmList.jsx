@@ -1,17 +1,13 @@
 import React from "react";
-import styles from "./FilmList.module.css";
-
-function FilmList({ films, removeFilm }) {
+import "./FilmList.scss";
+const FilmList = ({ films, removeFilm }) => {
     return (
-        <div className={`${styles.listContainer} `}>
+        <div className="app__filmlist">
             {films.map((film) => {
                 const { id, title, year } = film;
                 return (
-                    <div
-                        className={`${styles.filmItem} rounded-pill `}
-                        key={id}
-                    >
-                        <p className={styles.filmDescription}>
+                    <div className="app__filmlist-item rounded-pill" key={id}>
+                        <p className="m-0">
                             {title}
                             {year}
                         </p>
@@ -26,6 +22,6 @@ function FilmList({ films, removeFilm }) {
             })}
         </div>
     );
-}
+};
 
 export default FilmList;

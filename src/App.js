@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFilmLists } from "./actions/posts";
-import NavBar from "./components/NavBar";
-import Home from "./pages/Home";
-import Account from "./pages/Account";
-import MainPage from "./pages/MainPage";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import { Home, Account, MainPage } from "./pages";
+import "./App.scss";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -18,7 +16,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <>
-                <NavBar />
+                <Navbar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/account" element={<Account />} />

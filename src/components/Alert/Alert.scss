@@ -1,4 +1,4 @@
-.error {
+.app__alert {
     margin-bottom: 1rem;
     height: 1.25rem;
     display: grid;
@@ -10,4 +10,16 @@
     text-transform: capitalize;
     color: #721c24;
     background: #f8d7da;
+}
+
+.app__alert-success {
+    background-color: #0d5d0f;
+}
+
+.app__alert-error {
+    background-color: #721c24;
+}
+
+.app__alert-text {
+    color: white;
 }

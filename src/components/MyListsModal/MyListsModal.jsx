@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "./MyListsModal.module.css";
+import "./MyListsModal.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { updateFilmList } from "../../actions/posts";
 import { useGlobalContext } from "../../hooks/GlobalContext";
 import { Button } from "react-bootstrap";
-function MyListsModal() {
+import Alert from "../Alert/Alert";
+const MyListsModal = () => {
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
     const dispatch = useDispatch();
     const { showMyListsModal, closeMyListsModal, currentFilm } =
@@ -54,21 +55,21 @@ function MyListsModal() {
 
     return (
         <div
-            className={`${styles.modalOverlay} ${
-                showMyListsModal && styles.showModal
+            className={`app__modal-overlay ${
+                showMyListsModal && "app__modal-show"
             }`}
         >
-            <div className={styles.modalContainer}>
-                <div className={styles.modalHeader}>
+            <div className="app__modalmylists">
+                <div className="app__modal-header">
                     <h3>Add it your Lists</h3>
                     <button
                         type="button"
-                        className={` btn-close btn-close-white ${styles.closeBtn}`}
+                        className="app__btn-close btn-close btn-close-white"
                         aria-label="Close"
                         onClick={closeMyListsModal}
                     ></button>
                 </div>
-                <div className={styles.modalBody}>
+                <div className="app__modal-body">
                     {myFilmLists.length > 0
                         ? myFilmLists.map((filmlist) => {
                               return (
@@ -83,18 +84,10 @@ function MyListsModal() {
                           })
                         : "You currently dont have any lists"}
                 </div>
-                <div
-                    className={`text-center rounded ${
-                        alert.type === "success"
-                            ? styles.alertSuccess
-                            : styles.alertDanger
-                    }`}
-                >
-                    {alert.msg}
-                </div>
+                {alert.show && <Alert msg={alert.msg} type={alert.type} />}
             </div>
         </div>
     );
-}
+};
 
 export default MyListsModal;

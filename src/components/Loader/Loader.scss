@@ -1,0 +1,17 @@
+.app__loader {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        fill: #65b6ee;
+        rect {
+            fill: #65b6ee;
+        }
+    }
+
+    rect {
+        fill: #65b6ee;
+    }
+}

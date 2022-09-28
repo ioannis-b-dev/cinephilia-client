@@ -1,4 +1,4 @@
-.listContainer {
+.app__filmlist {
     margin: 0;
     display: grid;
     overflow: hidden;
@@ -11,7 +11,7 @@
     row-gap: 0.75em;
 }
 
-.filmItem {
+.app__filmlist-item {
     display: flex;
     flex-direction: row;
     color: white;
@@ -20,17 +20,4 @@
     justify-content: center;
     align-items: center;
     padding: 0.1em 0.6em;
-}
-
-.filmDescription {
-    margin: 0;
-}
-.filmImg {
-    width: 5%;
-    height: auto;
-}
-
-.deleteIcon {
-    background-color: transparent;
-    color: white;
 }

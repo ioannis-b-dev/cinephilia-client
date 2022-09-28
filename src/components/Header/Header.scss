@@ -1,0 +1,36 @@
+.app__header {
+    // margin-top: 10vh;
+    background-color: transparent;
+    width: 50vw;
+    height: 50vh;
+    align-self: center;
+    justify-self: center;
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em 2em;
+}
+
+.app__header-desc {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+
+    // border: 1px solid white;
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+}
+.app__header-footer {
+    // justify-self: flex-end;
+    // align-self: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    // border: 1px solid white;
+    column-gap: 2em;
+}

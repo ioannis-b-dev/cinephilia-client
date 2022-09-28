@@ -1,13 +1,17 @@
-import styles from "./Error.module.css";
-import React, { useEffect } from "react";
-const Alert = ({ msg }) => {
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => {
-    //         removeAlert();
-    //     }, 3000);
-    //     return () => clearTimeout(timeout);
-    // }, [list]);
-    return <p className={styles.error}>{msg}</p>;
+import React from "react";
+import { Container } from "react-bootstrap";
+import "./Alert.scss";
+
+const Alert = ({ msg, type }) => {
+    return (
+        <Container
+            className={`text-center rounded ${
+                type === "success" ? "app__alert-success" : "app__alert-error"
+            }`}
+        >
+            <p className="app__alert-text">{msg}</p>
+        </Container>
+    );
 };
 
 export default Alert;

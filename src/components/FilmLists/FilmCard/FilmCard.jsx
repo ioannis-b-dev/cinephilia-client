@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
-import styles from "./FilmCard.module.css";
+import "./FilmCard.scss";
 import { useState } from "react";
 import { useGlobalContext } from "../../../hooks/GlobalContext";
 
@@ -10,25 +10,23 @@ const FilmCard = ({ film }) => {
     const { openMyListsModal } = useGlobalContext();
     return (
         <Container
-            className={`${styles.cardContainer} p-0 m-0`}
+            className={"app__filmcard p-0 m-0"}
             onMouseEnter={() => setShowLinks(true)}
             onMouseLeave={() => setShowLinks(false)}
         >
             <img
                 src={filmPoster}
                 alt={title}
-                className={`${styles.filmImage} ${
-                    showLinks ? styles.lowOpacity : null
-                }`}
+                className={`${showLinks ? "low-opacity" : null}`}
             ></img>
             {showLinks && (
-                <div className={styles.cardDetails}>
-                    <Button className={styles.cardButton}>
+                <div className="app__filmcard-details">
+                    <Button className="app__btn-primary">
                         <a href={urlImdb} target="_blank" rel="noreferrer">
                             IMDb
                         </a>
                     </Button>
-                    <Button className={styles.cardButton}>
+                    <Button className="app__btn-primary">
                         <a
                             href={youtubeTrailerLink}
                             target="_blank"
@@ -38,7 +36,7 @@ const FilmCard = ({ film }) => {
                         </a>
                     </Button>
                     <Button
-                        className={styles.cardButton}
+                        className="app__btn-primary"
                         onClick={() => openMyListsModal(film)}
                     >
                         Add to my List

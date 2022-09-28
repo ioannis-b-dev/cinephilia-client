@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "./NavBar.module.css";
+import "./Navbar.scss";
 import { Navbar, Button, Container } from "react-bootstrap";
 import { GiFilmProjector } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useGlobalContext } from "../../hooks/GlobalContext";
+
 const NavBar = () => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("profile"))
@@ -24,16 +25,14 @@ const NavBar = () => {
     }, [location]);
 
     return (
-        <Navbar className={styles.navMain}>
+        <Navbar className="app__navbar">
             <Container>
                 <Navbar.Brand className="d-flex align-items-center">
                     <Link to="/">
-                        <GiFilmProjector
-                            className={styles.navLogo}
-                        ></GiFilmProjector>
+                        <GiFilmProjector className="app__navbar-logo"></GiFilmProjector>
                     </Link>
 
-                    <Link to="/" className={styles.navTitle}>
+                    <Link to="/" className="app__navbar-title">
                         Cinephilia
                     </Link>
                 </Navbar.Brand>
@@ -41,32 +40,32 @@ const NavBar = () => {
                 <Navbar.Collapse className="justify-content-end">
                     {user ? (
                         <div className="d-flex">
-                            <Navbar.Text className={styles.loggedInUser}>
+                            <Navbar.Text className="app__navbar-user">
                                 {user.userObject.userName ||
                                     user.userObject.name}
                             </Navbar.Text>
                             <div>
                                 <Button
-                                    className={styles.myBtn}
+                                    className="app__btn-secondary"
                                     onClick={() => setShowMyLists(false)}
                                 >
                                     <Link to="/filmlists">Browse Lists</Link>
                                 </Button>
                                 <Button
-                                    className={styles.myBtn}
+                                    className="app__btn-secondary"
                                     onClick={() => setShowMyLists(true)}
                                 >
                                     <Link to="/filmlists">My Lists</Link>
                                 </Button>
                                 <Button
-                                    className={styles.myBtn}
+                                    className="app__btn-secondary"
                                     onClick={openFilmsModal}
                                 >
                                     <Link to="/filmlists">Create List</Link>
                                 </Button>
 
                                 <Button
-                                    className={styles.logoutBtn}
+                                    className="app__navbar-logout-btn"
                                     onClick={logout}
                                 >
                                     Logout
@@ -75,10 +74,10 @@ const NavBar = () => {
                         </div>
                     ) : (
                         <div>
-                            <Button className={styles.myBtn}>
+                            <Button className="app__btn-secondary">
                                 <Link to="/filmlists">Browse Lists</Link>
                             </Button>
-                            <Button className={styles.myBtn}>
+                            <Button className="app__btn-secondary">
                                 <Link to="/account">Login</Link>
                             </Button>
                         </div>
