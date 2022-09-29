@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
-import { Navbar, Button, Container } from "react-bootstrap";
+import { Navbar as Navboot, Button, Container } from "react-bootstrap";
 import { GiFilmProjector } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useGlobalContext } from "../../hooks/GlobalContext";
 
-const NavBar = () => {
+const Navbar = () => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("profile"))
     );
@@ -25,9 +25,9 @@ const NavBar = () => {
     }, [location]);
 
     return (
-        <Navbar className="app__navbar">
+        <Navboot className="app__navbar">
             <Container>
-                <Navbar.Brand className="d-flex align-items-center">
+                <Navboot.Brand className="d-flex align-items-center">
                     <Link to="/">
                         <GiFilmProjector className="app__navbar-logo"></GiFilmProjector>
                     </Link>
@@ -35,15 +35,15 @@ const NavBar = () => {
                     <Link to="/" className="app__navbar-title">
                         Cinephilia
                     </Link>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                <Navbar.Collapse className="justify-content-end">
+                </Navboot.Brand>
+                <Navboot.Toggle />
+                <Navboot.Collapse className="justify-content-end">
                     {user ? (
                         <div className="d-flex">
-                            <Navbar.Text className="app__navbar-user">
+                            <Navboot.Text className="app__navbar-user">
                                 {user.userObject.userName ||
                                     user.userObject.name}
-                            </Navbar.Text>
+                            </Navboot.Text>
                             <div>
                                 <Button
                                     className="app__btn-secondary"
@@ -82,10 +82,10 @@ const NavBar = () => {
                             </Button>
                         </div>
                     )}
-                </Navbar.Collapse>
+                </Navboot.Collapse>
             </Container>
-        </Navbar>
+        </Navboot>
     );
 };
 
-export default NavBar;
+export default Navbar;
