@@ -4,5 +4,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 1em;
+}
+
+.app__listform-title {
+    margin-bottom: 1em;
+}
+
+.app__listform-films {
+    margin-bottom: 1em;
 }

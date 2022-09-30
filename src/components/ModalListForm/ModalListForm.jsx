@@ -11,7 +11,7 @@ function ModalListForm() {
             }`}
         >
             <div className="app__modalform rounded">
-                <div className="app__modalform-header">
+                <div className="app__modal-header">
                     <h3>Create a List</h3>
                     <button
                         type="button"

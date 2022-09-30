@@ -1,0 +1,52 @@
+.app__search-inputgroup {
+    border: 1px solid green;
+    display: flex;
+}
+
+.app__search-icon {
+    height: 100%;
+    width: 1.2em;
+    margin-right: 0.5em;
+    font-size: large;
+    color: black;
+    &:hover {
+        color: var(--clr-btn-text-1);
+    }
+}
+
+.debug-this {
+    background-color: white;
+}
+
+.test-this {
+    margin-bottom: 1em;
+}
+
+.test-this-this {
+    border-right: none;
+    margin-top: 0;
+}
+
+.app__search-suggestions {
+    overflow: hidden;
+    overflow-y: auto;
+    border: 1px solid white;
+    height: 5em;
+    margin-bottom: 1em;
+    p {
+        margin: 0;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        text-align: center;
+
+        &:hover {
+            background-color: white;
+            color: black;
+            border-bottom: 1px solid black;
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -69,6 +69,7 @@ const FilmCarousel = ({ filmlist }) => {
 
             <Swiper
                 slidesPerView={4}
+                loopedSlidesLimit={false}
                 spaceBetween={30}
                 loop={true}
                 pagination={{

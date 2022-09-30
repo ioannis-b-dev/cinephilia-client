@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import Loader from "../../Loader/Loader";
 import Alert from "../../Alert/Alert";
-const SearchAPI = ({ getMovieData, isLoading, isError }) => {
+import { AiOutlineSearch } from "react-icons/ai";
+import { TiDelete } from "react-icons/ti";
+import "./SearchAPI.scss";
+import useImdbAPI from "../../../hooks/useImdbAPI";
+const SearchAPI = ({ getFilmData, isLoading, isError }) => {
     const [searchMovie, setSearchMovie] = useState("");
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
+    const [suggestionsList, setSuggestionsList] = useState([]);
+    const { getSuggestions, suggestions, clearSuggestions } = useImdbAPI();
 
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchMovie || searchMovie === "") return;
-        await getMovieData(searchMovie);
+        await getSuggestions(searchMovie);
+
         setSearchMovie("");
     };
 
@@ -26,30 +33,75 @@ const SearchAPI = ({ getMovieData, isLoading, isError }) => {
             return () => clearTimeout(timeout);
         }
     }, [isError]);
+
+    useEffect(() => {
+        if (suggestions) {
+            setSuggestionsList(suggestions);
+        }
+    }, [suggestions]);
+
+    const confirmFilm = async (e, id) => {
+        e.preventDefault();
+        await getFilmData(id);
+        setSuggestionsList([]);
+        clearSuggestions();
+    };
+
+    const deleteSuggestions = (e) => {
+        e.preventDefault();
+        setSuggestionsList([]);
+        clearSuggestions();
+    };
     return (
         <>
-            <Form.Group>
-                <Form.Label>Search Films</Form.Label>
+            <Form.Label>Search Films</Form.Label>
+            <InputGroup className="test-this">
                 <Form.Control
                     type="text"
+                    className="test-this-this"
                     placeholder="Search for movies"
                     required
                     value={searchMovie}
                     onChange={(e) => setSearchMovie(e.target.value)}
                 />
-            </Form.Group>
-            {isLoading ? (
-                <Loader />
-            ) : (
-                <Button
-                    className="app__btn-primary align-self-start"
-                    type="submit"
-                    onClick={handleSearch}
-                >
-                    SEARCH
-                </Button>
-            )}
 
+                <InputGroup.Text className="py-0 px-0 debug-this">
+                    {!isLoading ? (
+                        suggestionsList.length > 0 ? (
+                            <TiDelete
+                                className="app__search-icon"
+                                type="button"
+                                onClick={deleteSuggestions}
+                            ></TiDelete>
+                        ) : (
+                            <AiOutlineSearch
+                                className="app__search-icon"
+                                type="submit"
+                                onClick={handleSearch}
+                            ></AiOutlineSearch>
+                        )
+                    ) : (
+                        <Loader />
+                    )}
+                </InputGroup.Text>
+            </InputGroup>
+
+            {suggestionsList.length > 0 && (
+                <div className="app__search-suggestions rounded">
+                    {suggestionsList.map((film) => {
+                        const { id, title, description } = film;
+                        return (
+                            <p
+                                key={id}
+                                className="rounded"
+                                onClick={(e) => confirmFilm(e, id)}
+                            >
+                                {`${title}  ${description}`}
+                            </p>
+                        );
+                    })}
+                </div>
+            )}
             {alert.show && <Alert msg={alert.msg} type={alert.type} />}
         </>
     );

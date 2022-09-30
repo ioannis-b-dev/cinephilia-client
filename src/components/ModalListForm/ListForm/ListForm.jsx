@@ -16,7 +16,7 @@ const ListForm = () => {
     const isInitialLoad = useRef(false);
     const dispatch = useDispatch();
     const { closeFilmsModal, currentId, setCurrentId } = useGlobalContext();
-    const { submitRequest, movieData, isLoading, isError } = useImdbAPI();
+    const { movieData, isLoading, isError, getFilmData } = useImdbAPI();
     const currentFilmList = useSelector((state) =>
         currentId ? state.posts.find((list) => list._id === currentId) : null
     );
@@ -30,22 +30,7 @@ const ListForm = () => {
     useEffect(() => {
         if (isInitialLoad) {
             if (movieData) {
-                const {
-                    id,
-                    title,
-                    year,
-                    filmPoster,
-                    youtubeTrailerLink,
-                    urlImdb,
-                } = movieData;
-                const newFilm = {
-                    id,
-                    title,
-                    year,
-                    filmPoster,
-                    youtubeTrailerLink,
-                    urlImdb,
-                };
+                const newFilm = movieData;
 
                 setFilmListData((prevListData) => {
                     const { films } = prevListData;
@@ -64,11 +49,6 @@ const ListForm = () => {
     useEffect(() => {
         if (currentFilmList) setFilmListData(currentFilmList);
     }, [currentFilmList]);
-
-    // HANDLERS
-    const handleRequest = (value) => {
-        submitRequest(value);
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -110,11 +90,14 @@ const ListForm = () => {
 
         setCurrentId(null);
     };
+    const handleRequest = (value) => {
+        getFilmData(value);
+    };
 
     return (
         <Form onSubmit={handleSubmit} className="app__listform rounded">
             {/* FILM LIST TITLE */}
-            <Form.Group>
+            <Form.Group className="app__listform-title">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     type="text"
@@ -131,14 +114,19 @@ const ListForm = () => {
 
             {/* Movie Search*/}
             <SearchAPI
-                getMovieData={handleRequest}
+                getFilmData={handleRequest}
                 isLoading={isLoading}
                 isError={isError}
             />
 
             {/* Current Movies List*/}
             {filmListData.films.length > 0 && (
-                <FilmList films={filmListData.films} removeFilm={removeFilm} />
+                <div className="app__listform-films">
+                    <FilmList
+                        films={filmListData.films}
+                        removeFilm={removeFilm}
+                    />
+                </div>
             )}
 
             <Button
