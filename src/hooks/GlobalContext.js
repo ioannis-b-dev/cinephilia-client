@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
-    const [showModalListForm, setShowModalListForm] = useState(false);
-    const [showMyListsModal, setShowMyListsModal] = useState(false);
+    const [showFilmsForm, setShowFilmsForm] = useState(false);
+    const [showFilmAdd, setShowFilmAdd] = useState(false);
+    const [showMyLists, setShowMyLists] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
     const [currentFilm, setCurrentFilm] = useState(null);
     const [currentId, setCurrentId] = useState(null);
-    const [showMyLists, setShowMyLists] = useState(false);
+
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
 
     const showAlert = (show = false, type = "", msg = "") => {
@@ -16,38 +18,45 @@ const AppProvider = ({ children }) => {
     };
 
     const openMyListsModal = (film) => {
-        setShowMyListsModal(true);
+        setShowFilmAdd(true);
         setCurrentFilm(film);
-    };
-    const closeMyListsModal = () => {
-        setShowMyListsModal(false);
-        setCurrentFilm(null);
     };
 
     const openFilmsModal = () => {
-        setShowModalListForm(true);
+        setShowFilmsForm(true);
     };
-    const closeFilmsModal = () => {
-        setShowModalListForm(false);
+
+    const openConfirmModal = () => {
+        setShowConfirm(true);
+    };
+
+    const closeModal = () => {
+        setShowFilmAdd(false);
+        setCurrentFilm(null);
+        setShowFilmsForm(false);
+        setShowConfirm(false);
     };
 
     return (
         <AppContext.Provider
             value={{
-                showModalListForm,
-                openFilmsModal,
-                closeFilmsModal,
-                openMyListsModal,
-                closeMyListsModal,
-                currentId,
-                setCurrentId,
+                showFilmsForm,
+                showFilmAdd,
+                showConfirm,
                 showMyLists,
+                showAlert,
+
+                openFilmsModal,
+                openMyListsModal,
+                openConfirmModal,
+                closeModal,
+                removeAlert,
+
+                setCurrentId,
                 setShowMyLists,
-                showMyListsModal,
+                currentId,
                 currentFilm,
                 alert,
-                showAlert,
-                removeAlert,
             }}
         >
             {children}

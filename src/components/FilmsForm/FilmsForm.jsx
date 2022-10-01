@@ -1,21 +1,22 @@
 //react,styling
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import "./ListForm.scss";
+import "./FilmsForm.scss";
 //components
-import SearchAPI from "../SearchAPI/SearchAPI";
-import FilmList from "../FilmList/FilmList";
+import SearchAPI from "./SearchAPI/SearchAPI";
+import FilmList from "./FilmList/FilmList";
 
 //hooks
-import useImdbAPI from "../../../hooks/useImdbAPI";
+import { useImdbAPI, useGlobalContext } from "../../hooks";
 import { useDispatch, useSelector } from "react-redux";
-import { createFilmList, updateFilmList } from "../../../actions/posts";
-import { useGlobalContext } from "../../../hooks/GlobalContext";
-const ListForm = () => {
+import { createFilmList, updateFilmList } from "../../redux/actions/posts";
+
+import ModalWrap from "../../wrappers/ModalWrap";
+const FilmsForm = () => {
     //HOOKS
     const isInitialLoad = useRef(false);
     const dispatch = useDispatch();
-    const { closeFilmsModal, currentId, setCurrentId } = useGlobalContext();
+    const { closeModal, currentId, setCurrentId } = useGlobalContext();
     const { movieData, isLoading, isError, getFilmData } = useImdbAPI();
     const currentFilmList = useSelector((state) =>
         currentId ? state.posts.find((list) => list._id === currentId) : null
@@ -68,7 +69,7 @@ const ListForm = () => {
                 })
             );
         }
-        closeFilmsModal();
+        closeModal();
         clearCurrList();
     };
 
@@ -141,4 +142,4 @@ const ListForm = () => {
     );
 };
 
-export default ListForm;
+export default ModalWrap(FilmsForm, "Create a List");

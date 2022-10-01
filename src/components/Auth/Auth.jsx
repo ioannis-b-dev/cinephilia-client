@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signin, signup } from "../../actions/auth";
+import { signin, signup } from "../../redux/actions/auth";
 import { useGoogleLogin } from "@react-oauth/google";
-import { BsGoogle } from "react-icons/bs";
+import { GoogleIcon } from "../../constants/icons";
 import axios from "axios";
 import Alert from "../Alert/Alert";
 import "./Auth.scss";
@@ -146,7 +146,7 @@ const Auth = () => {
                     </Button>
                     <h3 className="align-self-center">or</h3>
                     <Button className="app__btn-primary" onClick={login}>
-                        <BsGoogle /> Sign in with Google
+                        <GoogleIcon /> Sign in with Google
                     </Button>
                 </div>
 

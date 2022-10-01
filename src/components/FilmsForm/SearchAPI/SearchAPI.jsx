@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import Loader from "../../Loader/Loader";
 import Alert from "../../Alert/Alert";
-import { AiOutlineSearch } from "react-icons/ai";
-import { TiDelete } from "react-icons/ti";
+import { DeleteXIcon, SearchIcon } from "../../../constants/icons";
 import "./SearchAPI.scss";
-import useImdbAPI from "../../../hooks/useImdbAPI";
+import { useImdbAPI } from "../../../hooks";
 const SearchAPI = ({ getFilmData, isLoading, isError }) => {
     const [searchMovie, setSearchMovie] = useState("");
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
@@ -68,17 +67,17 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
                 <InputGroup.Text className="py-0 px-0 debug-this">
                     {!isLoading ? (
                         suggestionsList.length > 0 ? (
-                            <TiDelete
+                            <DeleteXIcon
                                 className="app__search-icon"
                                 type="button"
                                 onClick={deleteSuggestions}
-                            ></TiDelete>
+                            />
                         ) : (
-                            <AiOutlineSearch
+                            <SearchIcon
                                 className="app__search-icon"
                                 type="submit"
                                 onClick={handleSearch}
-                            ></AiOutlineSearch>
+                            />
                         )
                     ) : (
                         <Loader />

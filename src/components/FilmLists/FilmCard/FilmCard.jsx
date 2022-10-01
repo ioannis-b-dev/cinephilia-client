@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import "./FilmCard.scss";
 import { useState } from "react";
-import { useGlobalContext } from "../../../hooks/GlobalContext";
+import { useGlobalContext } from "../../../hooks";
 
 const FilmCard = ({ film }) => {
     const { filmPoster, title, youtubeTrailerLink, urlImdb } = film;

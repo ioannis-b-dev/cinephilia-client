@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FilmsCarousel from "./FilmsCarousel/FilmsCarousel";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { useGlobalContext } from "../../hooks/GlobalContext";
+import { useGlobalContext } from "../../hooks";
 
 const FilmCategories = () => {
     const location = useLocation();

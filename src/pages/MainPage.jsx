@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getFilmLists } from "../actions/posts";
-import { FilmLists, ModalListForm, MyListsModal } from "../components";
+import { getFilmLists } from "../redux/actions/posts";
+import { FilmLists, FilmsForm, FilmAdd } from "../components";
+import { useGlobalContext } from "../hooks";
 
 const MainPage = () => {
     const dispatch = useDispatch();
-
+    const { showFilmsForm, showFilmAdd } = useGlobalContext();
     useEffect(() => {
         dispatch(getFilmLists());
     }, []);
@@ -13,8 +14,8 @@ const MainPage = () => {
     return (
         <div className="app__main-page">
             <FilmLists />
-            <ModalListForm />
-            <MyListsModal />
+            {showFilmsForm && <FilmsForm />}
+            {showFilmAdd && <FilmAdd />}
         </div>
     );
 };

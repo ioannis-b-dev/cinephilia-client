@@ -1,5 +1,5 @@
 import * as api from "../api";
-import { AUTH, AUTH_ERROR } from "../constants/actionTypes";
+import { AUTH, AUTH_ERROR } from "../../constants/actionTypes";
 
 export const signin = (formData, navigate) => async (dispatch) => {
     try {

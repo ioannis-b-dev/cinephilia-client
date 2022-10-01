@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilmCard from "../FilmCard/FilmCard";
+import FilmDelete from "../../FilmDelete/FilmDelete";
 import { Container, Button } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./FilmsCarousel.scss";
@@ -9,24 +10,27 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import { GrEdit } from "react-icons/gr";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { EditIcon, DeleteBinIcon } from "../../../constants/icons";
 import { useDispatch } from "react-redux";
-import { deleteFilmList } from "../../../actions/posts";
-import SimpleModal from "../../SimpleModal/SimpleModal";
-import { useGlobalContext } from "../../../hooks/GlobalContext";
+import { deleteFilmList } from "../../../redux/actions/posts";
+import { useGlobalContext } from "../../../hooks";
 
 const FilmCarousel = ({ filmlist }) => {
-    const { setCurrentId, openFilmsModal } = useGlobalContext();
+    const {
+        setCurrentId,
+        openFilmsModal,
+        showConfirm,
+        closeModal,
+        openConfirmModal,
+    } = useGlobalContext();
     const { title, films, _id, name, creator } = filmlist;
     const [filmsData] = useState(films);
-    const [modalShow, setModalShow] = useState(false);
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem("profile"));
 
     const confirmDelete = () => {
         dispatch(deleteFilmList(_id));
-        setModalShow(false);
+        openConfirmModal();
     };
 
     const editFilmList = (id) => {
@@ -52,13 +56,13 @@ const FilmCarousel = ({ filmlist }) => {
                                 className="app__btn-primary"
                                 onClick={() => editFilmList(_id)}
                             >
-                                <GrEdit />
+                                <EditIcon />
                             </Button>
                             <Button
                                 className="app__btn-primary"
-                                onClick={() => setModalShow(true)}
+                                onClick={openConfirmModal}
                             >
-                                <RiDeleteBinLine />
+                                <DeleteBinIcon />
                             </Button>
                         </>
                     )}
@@ -102,11 +106,12 @@ const FilmCarousel = ({ filmlist }) => {
                 })}
             </Swiper>
 
-            <SimpleModal
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-                confirmDelete={confirmDelete}
-            />
+            {showConfirm && (
+                <FilmDelete
+                    confirmDelete={confirmDelete}
+                    cancelDelete={() => closeModal()}
+                />
+            )}
         </Container>
     );
 };

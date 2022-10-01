@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
 import "./Header.scss";
-import { useGlobalContext } from "../../hooks/GlobalContext";
+import { useGlobalContext } from "../../hooks";
 const Header = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
     const { setShowMyLists } = useGlobalContext();

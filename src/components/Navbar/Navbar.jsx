@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
 import { Navbar as Navboot, Button, Container } from "react-bootstrap";
-import { GiFilmProjector } from "react-icons/gi";
+import { LogoIcon } from "../../constants/icons";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useGlobalContext } from "../../hooks/GlobalContext";
+import { useGlobalContext } from "../../hooks";
 
 const Navbar = () => {
     const [user, setUser] = useState(
@@ -29,7 +29,7 @@ const Navbar = () => {
             <Container>
                 <Navboot.Brand className="d-flex align-items-center">
                     <Link to="/">
-                        <GiFilmProjector className="app__navbar-logo"></GiFilmProjector>
+                        <LogoIcon className="app__navbar-logo" />
                     </Link>
 
                     <Link to="/" className="app__navbar-title">
