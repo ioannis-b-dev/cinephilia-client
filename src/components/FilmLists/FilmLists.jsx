@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import FilmsCarousel from "./FilmsCarousel/FilmsCarousel";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useGlobalContext } from "../../hooks";
+import FilmList from "./FilmList/FilmList";
+import "./FilmLists.scss";
 
 const FilmCategories = () => {
     const location = useLocation();
@@ -24,25 +25,19 @@ const FilmCategories = () => {
     }, [location]);
 
     return (
-        <>
+        <div className="filmlists__container">
             {showMyLists
                 ? myFilmLists.map((filmlist) => {
                       return (
-                          <FilmsCarousel
-                              filmlist={filmlist}
-                              key={filmlist._id}
-                          />
+                          <FilmList filmlist={filmlist} key={filmlist._id} />
                       );
                   })
                 : filmLists.map((filmlist) => {
                       return (
-                          <FilmsCarousel
-                              filmlist={filmlist}
-                              key={filmlist._id}
-                          />
+                          <FilmList filmlist={filmlist} key={filmlist._id} />
                       );
                   })}
-        </>
+        </div>
     );
 };
 

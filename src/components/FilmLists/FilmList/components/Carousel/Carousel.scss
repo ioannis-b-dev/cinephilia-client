@@ -1,0 +1,29 @@
+.filmlist__carousel {
+    display: flex;
+    width: 100%;
+    background-color: blue;
+}
+
+.filmlist__carousel-slide {
+    flex: 0 0 25%;
+    max-width: 25%;
+    aspect-ratio: 2/3;
+
+    @media screen and (min-width: 300px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    @media screen and (min-width: 640px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    @media screen and (min-width: 768px) {
+        flex: 0 0 25%;
+        max-width: 50%;
+    }
+    @media screen and (min-width: 1024px) {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}

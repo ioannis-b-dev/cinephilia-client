@@ -32,8 +32,8 @@ p {
     background-color: var(--clr-btn-bg-2);
     color: var(--clr-btn-text-1);
     border: var(--clr-btn-border-2);
-    margin-left: 1em;
-
+    margin: 0;
+    padding: 0;
     a {
         color: var(--clr-btn-text-1);
         &:hover {

@@ -6,7 +6,7 @@ import { signin, signup } from "../../redux/actions/auth";
 import { useGoogleLogin } from "@react-oauth/google";
 import { GoogleIcon } from "../../constants/icons";
 import axios from "axios";
-import Alert from "../Alert/Alert";
+import { Alert } from "../../common";
 import "./Auth.scss";
 
 const Auth = () => {

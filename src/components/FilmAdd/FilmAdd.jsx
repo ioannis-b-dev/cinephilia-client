@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateFilmList } from "../../redux/actions/posts";
 import { useGlobalContext } from "../../hooks";
 import { Button } from "react-bootstrap";
-import Alert from "../Alert/Alert";
+import Alert from "../../common/Alert/Alert";
 import ModalWrap from "../../wrappers/ModalWrap";
 const FilmAdd = () => {
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });

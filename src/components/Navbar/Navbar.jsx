@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.scss";
-import { Navbar as Navboot, Button, Container } from "react-bootstrap";
-import { LogoIcon } from "../../constants/icons";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useGlobalContext } from "../../hooks";
-
+import { useNavigate, useLocation } from "react-router-dom";
+import { useGlobalContext, useNavigation } from "../../hooks";
+import TopMenu from "./TopMenu/TopMenu";
+import SideMenu from "./SideMenu/SideMenu";
 const Navbar = () => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem("profile"))
     );
+
     const { openFilmsModal, setShowMyLists } = useGlobalContext();
+    const { isMobileView, isMenuOpen, setIsMenuOpen } = useNavigation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -25,66 +26,26 @@ const Navbar = () => {
     }, [location]);
 
     return (
-        <Navboot className="app__navbar">
-            <Container>
-                <Navboot.Brand className="d-flex align-items-center">
-                    <Link to="/">
-                        <LogoIcon className="app__navbar-logo" />
-                    </Link>
-
-                    <Link to="/" className="app__navbar-title">
-                        Cinephilia
-                    </Link>
-                </Navboot.Brand>
-                <Navboot.Toggle />
-                <Navboot.Collapse className="justify-content-end">
-                    {user ? (
-                        <div className="d-flex">
-                            <Navboot.Text className="app__navbar-user">
-                                {user.userObject.userName ||
-                                    user.userObject.name}
-                            </Navboot.Text>
-                            <div>
-                                <Button
-                                    className="app__btn-secondary"
-                                    onClick={() => setShowMyLists(false)}
-                                >
-                                    <Link to="/filmlists">Browse Lists</Link>
-                                </Button>
-                                <Button
-                                    className="app__btn-secondary"
-                                    onClick={() => setShowMyLists(true)}
-                                >
-                                    <Link to="/filmlists">My Lists</Link>
-                                </Button>
-                                <Button
-                                    className="app__btn-secondary"
-                                    onClick={openFilmsModal}
-                                >
-                                    <Link to="/filmlists">Create List</Link>
-                                </Button>
-
-                                <Button
-                                    className="app__navbar-logout-btn"
-                                    onClick={logout}
-                                >
-                                    Logout
-                                </Button>
-                            </div>
-                        </div>
-                    ) : (
-                        <div>
-                            <Button className="app__btn-secondary">
-                                <Link to="/filmlists">Browse Lists</Link>
-                            </Button>
-                            <Button className="app__btn-secondary">
-                                <Link to="/account">Login</Link>
-                            </Button>
-                        </div>
-                    )}
-                </Navboot.Collapse>
-            </Container>
-        </Navboot>
+        <div>
+            <TopMenu
+                user={user}
+                logout={logout}
+                isMobileView={isMobileView}
+                toggleMenu={setIsMenuOpen}
+                isMenuOpen={isMenuOpen}
+                openFilmsModal={openFilmsModal}
+                setShowMyLists={setShowMyLists}
+            />
+            <SideMenu
+                user={user}
+                logout={logout}
+                isMobileView={isMobileView}
+                toggleMenu={setIsMenuOpen}
+                isMenuOpen={isMenuOpen}
+                openFilmsModal={openFilmsModal}
+                setShowMyLists={setShowMyLists}
+            />
+        </div>
     );
 };
 

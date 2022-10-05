@@ -1,0 +1,10 @@
+.carousel__card {
+    border: 1px solid white;
+    max-width: 100%;
+    aspect-ratio: 2/3;
+    img {
+        height: 100%;
+        aspect-ratio: 2/3;
+        object-fit: cover;
+    }
+}

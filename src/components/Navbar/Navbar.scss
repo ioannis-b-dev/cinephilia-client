@@ -1,6 +1,24 @@
 .app__navbar {
+    position: relative;
     background-color: black;
-    border-bottom: 1px solid rgba($color: #fefefe, $alpha: 0.1);
+    border: 1px solid rgba($color: #fefefe, $alpha: 1);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 3.5rem;
+    z-index: 10;
+}
+//
+.app__navbar-header {
+    z-index: 10;
+    color: #950740;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .app__navbar-logo {
@@ -8,29 +26,94 @@
     height: 40px;
     color: #950740;
 }
-
 .app__navbar-title {
     color: white;
-    margin-left: 1em;
-    font-size: larger;
-    letter-spacing: 0.1em;
+    margin: 0rem 1.5rem;
+    font-size: 1.5em;
+    letter-spacing: 0.25rem;
+    text-align: center;
+    padding-bottom: 0.15rem;
 }
 
-.app__navbar-user {
-    font-weight: bold;
-    color: white;
-    font-size: medium;
-    margin-right: 1em;
+.app__navbar-menu {
+    z-index: 10;
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        & > * {
+            font-size: 1.15em;
+            @media screen and (min-width: 400px) {
+                margin-left: 1.5rem;
+            }
+            @media screen and (min-width: 800px) {
+                margin-left: 1.9rem;
+            }
+            @media screen and (min-width: 1200px) {
+                margin-left: 2.8rem;
+            }
+        }
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+
+    .app__navbar-user {
+        font-weight: bold;
+        color: white;
+        font-size: medium;
+    }
+}
+
+.app__navbar-toggle {
+    height: 35px;
+    width: auto;
+    color: #950740;
+
+    cursor: pointer;
+    &:hover {
+        background-color: var(--clr-btn-hover-bg-2);
+        color: var(--clr-btn-hover-text-1);
+        border: 2px solid #ffffff;
+    }
 }
 
 .app__navbar-logout-btn {
     background-color: #950740;
     color: #1a1a1d;
     border: 2px solid #1a1a1d;
-    margin-left: 1em;
+
     &:hover {
         background-color: var(--clr-btn-hover-bg-2);
         color: var(--clr-btn-hover-text-1);
         border: 2px solid #ffffff;
+    }
+}
+
+.app__navbar-sidemenu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 5;
+
+    div {
+        border-bottom: 1px solid rgba($color: #fefefe, $alpha: 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        row-gap: 2rem;
+
+        width: 100vw;
+        height: 50vh;
+
+        background-color: rgba($color: #000000, $alpha: 0.7);
+        // padding-top: 1em;
+        h4 {
+            color: white;
+        }
     }
 }

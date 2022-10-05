@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, InputGroup } from "react-bootstrap";
-import Loader from "../../Loader/Loader";
-import Alert from "../../Alert/Alert";
+import { Alert, Loader } from "../../../common";
 import { DeleteXIcon, SearchIcon } from "../../../constants/icons";
 import "./SearchAPI.scss";
 import { useImdbAPI } from "../../../hooks";
