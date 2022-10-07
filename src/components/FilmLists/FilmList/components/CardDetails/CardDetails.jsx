@@ -6,18 +6,26 @@ const CardDetails = ({ film }) => {
     const { openMyListsModal } = useGlobalContext();
     return (
         <div className="carousel__card-details">
-            <button className="app__btn-primary">
-                <a href={urlImdb} target="_blank" rel="noreferrer">
-                    IMDb
-                </a>
-            </button>
-            <button className="app__btn-primary">
-                <a href={youtubeTrailerLink} target="_blank" rel="noreferrer">
-                    Watch Trailer
-                </a>
-            </button>
+            <a
+                href={urlImdb}
+                target="_blank"
+                rel="noreferrer"
+                className="card__link"
+            >
+                IMDb
+            </a>
+
+            <a
+                href={youtubeTrailerLink}
+                target="_blank"
+                rel="noreferrer"
+                className="card__link"
+            >
+                Watch Trailer
+            </a>
+
             <button
-                className="app__btn-primary"
+                className="card__link"
                 onClick={() => openMyListsModal(film)}
             >
                 Add to my List

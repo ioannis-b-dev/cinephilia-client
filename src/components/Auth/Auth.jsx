@@ -77,92 +77,98 @@ const Auth = () => {
     };
 
     return (
-        <Container className="app__auth d-flex flex-column align-items-center rounded">
-            <h1>{isSignup ? "Sign Up" : "Sign In"}</h1>
+        <Form onSubmit={handleSubmit} className="authForm">
+            <header className="Form__Header">
+                <h1 className="Form__Title">
+                    {isSignup ? "REGISTER" : "LOGIN"}
+                </h1>
+                <p className="Form__Legend">
+                    {isSignup
+                        ? "Please fill in the information below: "
+                        : "Please enter your email and password"}
+                </p>
+            </header>
 
-            <Form onSubmit={handleSubmit} className="d-flex flex-column">
-                {isSignup && (
-                    <Form.Group className="mb-3">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Username"
-                            name="userName"
-                            value={formData.userName}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                )}
-
+            {isSignup && (
                 <Form.Group className="mb-3">
-                    <Form.Label>Email address</Form.Label>
                     <Form.Control
-                        type="email"
-                        placeholder="Enter email"
-                        name="email"
-                        value={formData.email}
+                        className="FORM__INPUT"
+                        type="text"
+                        placeholder="Username"
+                        name="userName"
+                        value={formData.userName}
                         onChange={handleChange}
                     />
                 </Form.Group>
+            )}
 
-                <Form.Group className="mb-3">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
+            <Form.Group className="mb-3">
+                <Form.Control
+                    className="FORM__INPUT"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                />
+            </Form.Group>
 
-                    {isSignup && (
-                        <Form.Group className="mb-3">
-                            <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control
-                                type={showPassword ? "text" : "password"}
-                                placeholder="Confirm Password"
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleChange}
-                            />
-                        </Form.Group>
-                    )}
+            <Form.Control
+                className="FORM__INPUT mb-3"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+            />
 
-                    <Form.Check
-                        type="checkbox"
-                        label="Show Password"
-                        onClick={handleShowPassword}
-                        value={showPassword}
-                    />
-                </Form.Group>
+            {isSignup && (
+                <Form.Control
+                    className="FORM__INPUT mb-3"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                />
+            )}
 
-                <div className="d-flex flex-column justify-content-center">
-                    <Button
-                        onSubmit={handleSubmit}
-                        className="app__btn-primary"
-                        type="submit"
-                    >
-                        {isSignup ? "Sign up" : "Sign in"}
-                    </Button>
-                    <h3 className="align-self-center">or</h3>
-                    <Button className="app__btn-primary" onClick={login}>
+            <Form.Check
+                type="checkbox"
+                label="Show Password"
+                onClick={handleShowPassword}
+                value={showPassword}
+            />
+
+            <div className="d-flex flex-column justify-content-center">
+                <button
+                    onSubmit={handleSubmit}
+                    className="FORM__BUTTON"
+                    type="submit"
+                >
+                    {isSignup ? "CREATE MY ACCOUNT" : "Sign in"}
+                </button>
+                {!isSignup && <h3 className="align-self-center">or</h3>}
+                {!isSignup && (
+                    <button className="FORM__BUTTON" onClick={login}>
                         <GoogleIcon /> Sign in with Google
-                    </Button>
-                </div>
+                    </button>
+                )}
 
                 <Button
                     variant="link"
                     type="submit"
                     onClick={switchMode}
-                    className="justify-self-center"
+                    className="FORM__LINK"
                 >
                     {isSignup
-                        ? "Already have an account? Sign In"
-                        : "Don't have an account? Sign Up"}
+                        ? "Already have an account? Sign in"
+                        : "Don't have an account? Sign up"}
                 </Button>
-            </Form>
+            </div>
+
             {alert.show && <Alert msg={alert.msg} type={alert.type} />}
-        </Container>
+        </Form>
     );
 };
 export default Auth;

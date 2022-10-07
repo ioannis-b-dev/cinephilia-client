@@ -2,6 +2,12 @@ body {
     background-color: black;
     margin: 0;
     padding: 0;
+    // font-family: "Futura LT", sans-serif;
+    // font-weight: 300;
+    // font-style: normal;
+}
+button {
+    font-family: "Futura Md BT", sans-serif;
 }
 a {
     text-decoration: none;
@@ -10,11 +16,26 @@ p {
     color: white;
 }
 
+.app__container {
+    display: flex;
+    flex-direction: column;
+}
+.PageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    height: var(--page-height);
+    width: 100vw;
+    flex: 1;
+    overflow: auto;
+    margin: 0;
+}
 .app__btn-primary {
     background-color: var(--clr-btn-bg-1);
     color: var(--clr-btn-text-1);
     border: var(--clr-btn-border-1);
-
+    text-transform: uppercase;
     a {
         color: var(--clr-btn-text-1);
         &:hover {
@@ -29,11 +50,17 @@ p {
     }
 }
 .app__btn-secondary {
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    font-style: normal;
     background-color: var(--clr-btn-bg-2);
     color: var(--clr-btn-text-1);
     border: var(--clr-btn-border-2);
     margin: 0;
     padding: 0;
+    text-transform: uppercase;
     a {
         color: var(--clr-btn-text-1);
         &:hover {
@@ -44,17 +71,20 @@ p {
 
     &:hover {
         background-color: var(--clr-btn-hover-bg-2);
-        color: var(--clr-btn-text-1);
+        color: #1c1b1b;
         border: var(--clr-btn-hover-border-2);
     }
 }
 
 .app__btn-close {
-    color: white;
+    color: rgb(16, 16, 16);
     border-color: transparent;
     cursor: pointer;
     align-self: center;
     justify-self: flex-end;
+    & > * {
+        color: rgb(16, 16, 16);
+    }
 }
 
 .app__home-page {
@@ -88,6 +118,7 @@ p {
     transition: var(--transition);
     visibility: hidden;
     z-index: -1;
+    backdrop-filter: blur(2px);
 }
 
 .app__modal-show {
@@ -96,9 +127,11 @@ p {
 }
 
 .app__modal-header {
-    color: white;
+    color: #1c1b1b;
     display: flex;
     justify-content: space-between;
+    text-align: center;
+    letter-spacing: 0.2em;
 }
 
 .app__modal-body {
@@ -106,8 +139,9 @@ p {
 }
 
 .app__modalform {
-    background-color: black;
-    border: 2px solid #950740;
+    background-color: rgb(255, 251, 251);
+    border-radius: 0;
+    border: 2px solid #1c1b1b;
     display: flex;
     flex-direction: column;
     padding: 1.5em 2em;

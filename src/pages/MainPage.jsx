@@ -12,7 +12,7 @@ const MainPage = () => {
     }, []);
 
     return (
-        <div className="app__main-page">
+        <div className="PageContainer">
             <FilmLists />
             {showFilmsForm && <FilmsForm />}
             {showFilmAdd && <FilmAdd />}

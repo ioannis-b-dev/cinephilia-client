@@ -1,14 +1,16 @@
 .filmlist__carousel {
     display: flex;
     width: 100%;
-    background-color: blue;
+    background-color: rgb(215, 215, 220);
+    // border: 2px solid #950740;
 }
 
 .filmlist__carousel-slide {
     flex: 0 0 25%;
     max-width: 25%;
     aspect-ratio: 2/3;
-
+    padding: 1.75rem 1.25rem 1.25rem 1.25rem;
+    border: 2px solid #000000;
     @media screen and (min-width: 300px) {
         flex: 0 0 100%;
         max-width: 100%;

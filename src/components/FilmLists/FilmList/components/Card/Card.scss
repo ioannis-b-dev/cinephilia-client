@@ -1,5 +1,5 @@
 .carousel__card {
-    border: 1px solid white;
+    outline: 3px solid #000000;
     max-width: 100%;
     aspect-ratio: 2/3;
     img {
@@ -7,4 +7,9 @@
         aspect-ratio: 2/3;
         object-fit: cover;
     }
+    background-color: #000000;
+}
+
+.low-opacity {
+    opacity: 0.3;
 }

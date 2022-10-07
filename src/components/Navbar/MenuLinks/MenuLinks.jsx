@@ -9,12 +9,9 @@ const MenuLinks = ({
     setShowMyLists,
 }) => {
     return (
-        <>
+        <nav className="app__navbar-links-container">
             {user ? (
-                <div>
-                    <h4 className="app__navbar-user">
-                        {user.userObject.userName || user.userObject.name}
-                    </h4>
+                <div className="app__navbar-links">
                     <button
                         className="app__btn-secondary"
                         onClick={() => {
@@ -42,9 +39,28 @@ const MenuLinks = ({
                     >
                         <Link to="/filmlists">Create List</Link>
                     </button>
+                </div>
+            ) : (
+                <div className="app__navbar-links">
+                    <Link
+                        to="/filmlists"
+                        className="app__btn-secondary"
+                        onClick={() => {
+                            setShowMyLists(false);
+                            toggleMenu(false);
+                        }}
+                    >
+                        Browse Lists
+                    </Link>
+                </div>
+            )}
+
+            {user ? (
+                <div className="app__navbar-user">
+                    <h4>{user.userObject.userName || user.userObject.name}</h4>
 
                     <button
-                        className="app__navbar-logout-btn"
+                        className="test__btn"
                         onClick={() => {
                             logout();
                             toggleMenu(false);
@@ -54,16 +70,16 @@ const MenuLinks = ({
                     </button>
                 </div>
             ) : (
-                <div>
-                    <button className="app__btn-secondary">
-                        <Link to="/filmlists">Browse Lists</Link>
-                    </button>
-                    <button className="app__btn-secondary">
-                        <Link to="/account">Login</Link>
-                    </button>
+                <div className="app__navbar-user">
+                    <Link to="/account" className="test__btn">
+                        Sign up
+                    </Link>
+                    <Link to="/account" className="app__btn-secondary">
+                        Log in
+                    </Link>
                 </div>
             )}
-        </>
+        </nav>
     );
 };
 

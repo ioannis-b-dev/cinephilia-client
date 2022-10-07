@@ -13,12 +13,12 @@ const ModalWrap = (Component, cTitle) =>
         const { closeModal } = useGlobalContext();
         return (
             <div className="app__modal-overlay app__modal-show">
-                <div className="app__modalform rounded">
+                <div className="app__modalform ">
                     <div className="app__modal-header">
                         <h3>{cTitle}</h3>
                         <button
                             type="button"
-                            className="app__btn-close btn-close btn-close-white"
+                            className="app__btn-close "
                             aria-label="Close"
                             onClick={closeModal}
                         ></button>

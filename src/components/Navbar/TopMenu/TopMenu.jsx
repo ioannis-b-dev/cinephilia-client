@@ -1,8 +1,8 @@
 import React from "react";
 import "./TopMenu.scss";
-import { Link } from "react-router-dom";
-import { LogoIcon, MenuIcon } from "../../../constants/icons";
+import { MenuIcon } from "../../../constants/icons";
 import MenuLinks from "../MenuLinks/MenuLinks";
+import NavHeader from "../NavHeader/NavHeader";
 const TopMenu = ({
     user,
     logout,
@@ -14,31 +14,21 @@ const TopMenu = ({
 }) => {
     return (
         <div className="app__navbar">
-            <div className="app__navbar-header">
-                <Link to="/">
-                    <LogoIcon className="app__navbar-logo" />
-                </Link>
-
-                <Link to="/" className="app__navbar-title">
-                    Cinephilia
-                </Link>
-            </div>
-            <div className="app__navbar-menu">
-                {!user || !isMobileView ? (
-                    <MenuLinks
-                        user={user}
-                        logout={logout}
-                        toggleMenu={toggleMenu}
-                        openFilmsModal={openFilmsModal}
-                        setShowMyLists={setShowMyLists}
-                    />
-                ) : (
-                    <MenuIcon
-                        className="app__navbar-toggle"
-                        onClick={() => toggleMenu(!isMenuOpen)}
-                    />
-                )}
-            </div>
+            <NavHeader />
+            {!isMobileView ? (
+                <MenuLinks
+                    user={user}
+                    logout={logout}
+                    toggleMenu={toggleMenu}
+                    openFilmsModal={openFilmsModal}
+                    setShowMyLists={setShowMyLists}
+                />
+            ) : (
+                <MenuIcon
+                    className="app__navbar-toggle"
+                    onClick={() => toggleMenu(!isMenuOpen)}
+                />
+            )}
         </div>
     );
 };

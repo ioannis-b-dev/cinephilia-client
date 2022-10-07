@@ -14,4 +14,10 @@
     /* COLOR THEMES */
     /* CONTAINERS */
     /* FONTS */
+
+    --page-height: 100vh;
+    --page-width: 100vw;
+
+    --btn-padding-x: 0.75rem;
+    --btn-padding-y: 0.375rem;
 }

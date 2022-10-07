@@ -96,12 +96,13 @@ const FilmsForm = () => {
     };
 
     return (
-        <Form onSubmit={handleSubmit} className="app__listform rounded">
+        <Form onSubmit={handleSubmit} className="app__listform ">
             {/* FILM LIST TITLE */}
             <Form.Group className="app__listform-title">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     type="text"
+                    className="FORM__INPUT "
                     placeholder="Enter list title"
                     value={filmListData.title}
                     onChange={(e) =>
@@ -131,7 +132,7 @@ const FilmsForm = () => {
             )}
 
             <Button
-                className="app__btn-primary align-self-center"
+                className="FORM__BUTTON"
                 variant="primary"
                 type="submit"
                 onClick={handleSubmit}

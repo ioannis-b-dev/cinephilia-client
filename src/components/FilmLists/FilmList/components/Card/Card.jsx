@@ -8,7 +8,7 @@ const Card = ({ film }) => {
 
     return (
         <div
-            className="carousel__card"
+            className="carousel__card "
             onMouseEnter={() => setShowLinks(true)}
             onMouseLeave={() => setShowLinks(false)}
         >
@@ -17,7 +17,7 @@ const Card = ({ film }) => {
                 alt={title}
                 className={`${showLinks ? "low-opacity" : null}`}
             ></img>
-            {/* {showLinks && <CardDetails film={film} />} */}
+            {showLinks && <CardDetails film={film} />}
         </div>
     );
 };

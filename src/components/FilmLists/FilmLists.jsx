@@ -27,14 +27,22 @@ const FilmCategories = () => {
     return (
         <div className="filmlists__container">
             {showMyLists
-                ? myFilmLists.map((filmlist) => {
+                ? myFilmLists.map((filmlist, index) => {
                       return (
-                          <FilmList filmlist={filmlist} key={filmlist._id} />
+                          <FilmList
+                              filmlist={filmlist}
+                              key={filmlist._id}
+                              index={index}
+                          />
                       );
                   })
-                : filmLists.map((filmlist) => {
+                : filmLists.map((filmlist, index) => {
                       return (
-                          <FilmList filmlist={filmlist} key={filmlist._id} />
+                          <FilmList
+                              filmlist={filmlist}
+                              key={filmlist._id}
+                              index={index}
+                          />
                       );
                   })}
         </div>

@@ -1,15 +1,61 @@
-.app__auth {
-    background-color: #1a1a1d;
-    color: #950740;
-    border: 2px solid #950740;
+.authForm {
+    background-color: #ffffff;
+    color: #000000;
+    max-width: 400px;
+}
 
-    width: 90vw;
-    margin: 0 auto;
-    max-width: 35rem;
-    margin-top: 8rem;
-    @media screen and (min-width: 992px) {
-        width: 95vw;
+.Form__Header {
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin-bottom: 24px;
+    .Form__Title {
     }
+
+    .Form__Legend {
+        color: #000000;
+    }
+}
+
+.FORM__BUTTON {
+    color: #fff;
+    border-color: #1c1b1b;
+    background-color: #1c1b1b;
+    border-radius: 0%;
+    padding: var(--btn-padding-x) var(--btn-padding-y);
+    font-family: "Futura Md BT", sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    line-height: normal;
+    border: 2px solid;
+    border-radius: 1;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    font-style: normal;
+    &:hover {
+        background-color: var(--clr-btn-hover-bg-2);
+        color: #1c1b1b;
+        border: 2px groove rgba($color: #1c1b1b, $alpha: 0.8);
+    }
+}
+.FORM__INPUT {
+    border-radius: 0%;
+    border: 1px solid black;
+}
+
+.FORM__INPUT:focus {
+    color: black;
+    border: 1px solid #721c24;
+    box-shadow: none;
+}
+.FORM__LINK {
+    color: #1c1b1b;
+}
+
+.authForm__Item {
 }
 
 .rwk__error {

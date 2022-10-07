@@ -7,7 +7,7 @@ const Home = () => {
         <div
             className="app__home-page"
             style={{
-                backgroundImage: `url(${images.background_image_2})`,
+                backgroundImage: `url(${images.background_image_1})`,
             }}
         >
             <Header />

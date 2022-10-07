@@ -56,7 +56,7 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
             <InputGroup className="test-this">
                 <Form.Control
                     type="text"
-                    className="test-this-this"
+                    className="FORM__INPUT no-brd "
                     placeholder="Search for movies"
                     required
                     value={searchMovie}
@@ -67,7 +67,7 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
                     {!isLoading ? (
                         suggestionsList.length > 0 ? (
                             <DeleteXIcon
-                                className="app__search-icon"
+                                className="app__search-icon "
                                 type="button"
                                 onClick={deleteSuggestions}
                             />
@@ -85,13 +85,13 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
             </InputGroup>
 
             {suggestionsList.length > 0 && (
-                <div className="app__search-suggestions rounded">
+                <div className="app__search-suggestions">
                     {suggestionsList.map((film) => {
                         const { id, title, description } = film;
                         return (
                             <p
                                 key={id}
-                                className="rounded"
+                                className=""
                                 onClick={(e) => confirmFilm(e, id)}
                             >
                                 {`${title}  ${description}`}

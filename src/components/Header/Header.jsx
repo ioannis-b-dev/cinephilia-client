@@ -7,7 +7,7 @@ const Header = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
     const { setShowMyLists } = useGlobalContext();
     return (
-        <div className="app__header rounded">
+        <div className="app__header ">
             <div className="app__header-info">
                 <h1>Welcome to Cinephilia</h1>
                 <p>Create and Share filmlists between cinema enthusiasts.</p>
@@ -28,7 +28,7 @@ const Header = () => {
                 </p>
 
                 <Button
-                    className="app__btn-primary"
+                    className="test__btn"
                     onClick={() => setShowMyLists(true)}
                 >
                     <Link to={user ? "/filmlists" : "/account"}>
