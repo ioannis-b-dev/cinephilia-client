@@ -1,6 +1,6 @@
 import React from "react";
 import "./SideMenu.scss";
-import MenuLinks from "../MenuLinks/MenuLinks";
+import SideLinks from "../SideLinks/SideLinks";
 import { motion } from "framer-motion";
 const SideMenu = ({
     user,
@@ -15,10 +15,10 @@ const SideMenu = ({
         <div className="app__navbar-sidemenu">
             {isMobileView && (
                 <motion.div
-                    animate={{ y: isMenuOpen ? "0vh" : "-60vh" }}
+                    animate={{ y: isMenuOpen ? "0px" : "-400px" }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                 >
-                    <MenuLinks
+                    <SideLinks
                         user={user}
                         logout={logout}
                         toggleMenu={toggleMenu}
