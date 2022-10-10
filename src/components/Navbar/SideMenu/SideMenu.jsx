@@ -12,10 +12,11 @@ const SideMenu = ({
     setShowMyLists,
 }) => {
     return (
-        <div className="app__navbar-sidemenu">
+        <div className="navbar__sidemenu">
             {isMobileView && (
                 <motion.div
-                    animate={{ y: isMenuOpen ? "0px" : "-400px" }}
+                    initial={{ y: "-360px" }}
+                    animate={{ y: isMenuOpen ? "0px" : "-360px" }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                 >
                     <SideLinks

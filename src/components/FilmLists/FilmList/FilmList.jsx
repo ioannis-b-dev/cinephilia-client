@@ -1,18 +1,21 @@
 import React from "react";
 import "./FilmList.scss";
 import Carousel from "./components/Carousel/Carousel";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+
 const FilmList = ({ filmlist, index }) => {
     const { films, title, name } = filmlist;
     return (
-        <div className={`filmlist__container ${index % 2 === 0 && "invert"}`}>
-            <div className="filmlist">
-                <Header information={{ title, name }} />
+        <section>
+            <div className="filmlist__container">
+                <div className="filmlist__header">
+                    <h2>{title}</h2>
+                </div>
                 <Carousel films={films} />
-                <Footer />
+                <div className="filmlist__footer">
+                    WORK IN PROGRESS ADD BUTTONS HERE
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

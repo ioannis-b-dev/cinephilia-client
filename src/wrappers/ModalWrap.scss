@@ -1,0 +1,31 @@
+.modal {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    display: grid;
+    place-items: center;
+}
+
+.modal__container {
+    background-color: rgb(255, 251, 251);
+    border-radius: 0;
+    border: 2px solid #1c1b1b;
+    min-width: 35vw;
+    max-width: 45vw;
+    padding: 1.5em 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__header {
+    color: #1c1b1b;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    letter-spacing: 0.2em;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./TopMenu.scss";
 import { MenuIcon } from "../../../constants/icons";
-import MenuLinks from "../MenuLinks/MenuLinks";
+import MenuLinks from "../TopLinks/TopLinks";
 import NavHeader from "../NavHeader/NavHeader";
 const TopMenu = ({
     user,

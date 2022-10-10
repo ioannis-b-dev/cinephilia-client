@@ -7,8 +7,8 @@ const Header = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
     const { setShowMyLists } = useGlobalContext();
     return (
-        <div className="app__header ">
-            <div className="app__header-info">
+        <header>
+            <div className="container header__container">
                 <h1>Welcome to Cinephilia</h1>
                 <p>Create and Share filmlists between cinema enthusiasts.</p>
                 <p>
@@ -36,7 +36,7 @@ const Header = () => {
                     </Link>
                 </Button>
             </div>
-        </div>
+        </header>
     );
 };
 

@@ -1,31 +1,23 @@
 import React from "react";
 import { useGlobalContext } from "../hooks";
-
-// showModalListForm,
-// openFilmsModal,
-// closeFilmsModal,
-// openMyListsModal,
-// closeMyListsModal,
-// showMyListsModal,
+import "./ModalWrap.scss";
 
 const ModalWrap = (Component, cTitle) =>
     function HOC() {
         const { closeModal } = useGlobalContext();
         return (
-            <div className="app__modal-overlay app__modal-show">
-                <div className="app__modalform ">
-                    <div className="app__modal-header">
+            <div className="modal">
+                <div className="modal__container">
+                    <div className="modal__header">
                         <h3>{cTitle}</h3>
                         <button
                             type="button"
-                            className="app__btn-close "
+                            className="btn-close "
                             aria-label="Close"
                             onClick={closeModal}
                         ></button>
                     </div>
-                    <div className="app__modalform-body">
-                        <Component />
-                    </div>
+                    <Component />
                 </div>
             </div>
         );

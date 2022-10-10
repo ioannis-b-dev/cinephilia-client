@@ -26,7 +26,7 @@ const Navbar = () => {
     }, [location]);
 
     return (
-        <div>
+        <>
             <TopMenu
                 user={user}
                 logout={logout}
@@ -45,7 +45,7 @@ const Navbar = () => {
                 openFilmsModal={openFilmsModal}
                 setShowMyLists={setShowMyLists}
             />
-        </div>
+        </>
     );
 };
 

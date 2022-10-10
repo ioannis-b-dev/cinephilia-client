@@ -78,7 +78,7 @@ const Auth = () => {
 
     return (
         <Form onSubmit={handleSubmit} className="authForm">
-            <header className="Form__Header">
+            <div className="Form__Header">
                 <h1 className="Form__Title">
                     {isSignup ? "REGISTER" : "LOGIN"}
                 </h1>
@@ -87,7 +87,7 @@ const Auth = () => {
                         ? "Please fill in the information below: "
                         : "Please enter your email and password"}
                 </p>
-            </header>
+            </div>
 
             {isSignup && (
                 <Form.Group className="mb-3">

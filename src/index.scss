@@ -1,0 +1,215 @@
+@import url("http://fonts.cdnfonts.com/css/futura-md-bt");
+@import url("http://fonts.cdnfonts.com/css/futura-lt");
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --color-bg: black;
+    --color-bg-variant: rgb(255, 251, 251);
+    --color-primary: #161515;
+    --color-primary-variant: #950740;
+    --color-white: rgb(255, 251, 251);
+
+    --container-width-lg: 75%;
+    --container-width-md: 86%;
+    --container-width-sm: 90%;
+
+    --transition: all 400ms ease;
+    /* BUTTONS */
+    --clr-btn-bg-2: transparent;
+    --clr-btn-text-1: #950740;
+    --clr-btn-border-1: 2px solid #950740;
+    --clr-btn-border-2: transparent;
+
+    --clr-btn-hover-bg-1: #000000;
+    --clr-btn-hover-bg-2: transparent;
+    --clr-btn-hover-text-1: #ffffff;
+    --clr-btn-hover-border-1: 2px solid #ffffff;
+    --clr-btn-hover-border-2: transparent;
+    /* COLOR THEMES */
+    /* CONTAINERS */
+    /* FONTS */
+
+    --page-height: 100vh;
+    --page-width: 100vw;
+
+    --btn-padding-x: 0.75rem;
+    --btn-padding-y: 0.375rem;
+}
+body {
+    background-color: var(--color-bg);
+    color: var(--color-white);
+    font-family: "Futura MD", sans-serif;
+    line-height: 1.7;
+    //apply a texture here to background
+}
+
+/* =================== GENERAL STYLES ===================*/
+.container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+}
+
+a {
+    color: var(--color-primary-variant);
+    transition: var(--transition);
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-top: 8rem;
+    h2,
+    h5 {
+        //set a color here?
+        text-align: center;
+        // margin-bottom: 3rem;
+    }
+}
+
+.btn {
+    cursor: pointer;
+    width: max-content;
+    padding: 0.75rem 1.2rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+    text-align: center;
+    font-family: "Futura Md BT", sans-serif;
+}
+.btn-primary {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary-variant);
+    a {
+        color: var(--clr-btn-text-1);
+        &:hover {
+            color: var(--clr-btn-hover-text-1);
+        }
+    }
+
+    &:hover {
+        background-color: var(--clr-btn-hover-bg-1);
+        color: var(--clr-btn-hover-text-1);
+        border: var(--clr-btn-hover-border-1);
+    }
+}
+.app__btn-secondary {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--clr-btn-bg-2);
+    color: var(--clr-btn-text-1);
+    border: var(--clr-btn-border-2);
+
+    a {
+        color: var(--clr-btn-text-1);
+        &:hover {
+            color: var(--clr-btn-hover-text-1);
+            background-color: var(--clr-btn-hover-bg-2);
+        }
+    }
+
+    &:hover {
+        background-color: var(--clr-btn-hover-bg-2);
+        color: #1c1b1b;
+        border: var(--clr-btn-hover-border-2);
+    }
+}
+
+.btn-close {
+    color: rgb(16, 16, 16);
+    border-color: transparent;
+    cursor: pointer;
+    align-self: center;
+    justify-self: flex-end;
+    & > * {
+        color: rgb(16, 16, 16);
+    }
+}
+
+/* =================== MEDIA QUERIES ===================*/
+@media screen and(max-width:1024px) {
+    .container {
+        width: var(--container-width-md);
+    }
+
+    section {
+        margin-top: 6rem;
+    }
+}
+
+@media screen and(max-width:600px) {
+    .container {
+        width: var(--container-width-sm);
+    }
+
+    section {
+        margin-top: 4rem;
+    }
+}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+.PageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    height: var(--page-height);
+    width: 100vw;
+    flex: 1;
+    overflow: auto;
+    margin: 0;
+}
+
+.app__home-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+}
+
+.rwk__success {
+    background-color: red;
+    color: white;
+}
+.rwk__danger {
+    background-color: green;
+    color: white;
+}

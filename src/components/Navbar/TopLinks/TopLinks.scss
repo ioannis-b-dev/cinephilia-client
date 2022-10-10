@@ -1,0 +1,29 @@
+.app__navbar-links-container {
+    a {
+        text-transform: uppercase;
+    }
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+    padding: 0.25rem 0.5rem;
+    .app__navbar-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 4em;
+    }
+    .app__navbar-user {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1em;
+        h4 {
+            margin-bottom: 0;
+            font-weight: bold;
+            color: #1c1b1b;
+            font-size: medium;
+        }
+    }
+}

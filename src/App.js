@@ -4,7 +4,6 @@ import { getFilmLists } from "./redux/actions/posts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import { Home, Account, MainPage } from "./pages";
-import "./App.scss";
 const App = () => {
     const dispatch = useDispatch();
 
@@ -14,7 +13,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="app__container">
+            <>
                 <Navbar />
 
                 <Routes>
@@ -22,7 +21,7 @@ const App = () => {
                     <Route path="/account" element={<Account />} />
                     <Route path="/filmlists" element={<MainPage />} />
                 </Routes>
-            </div>
+            </>
         </BrowserRouter>
     );
 };

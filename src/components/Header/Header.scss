@@ -1,4 +1,4 @@
-.app__header {
+header {
     background-color: rgba($color: #e9e1e4, $alpha: 0.3);
     border: 2px solid black;
     align-self: center;
@@ -7,16 +7,12 @@
     padding: 5rem;
 }
 
-.app__header-info {
+.header__container {
     display: grid;
     justify-content: center;
     align-items: center;
-
-    // border: 1px solid white;
     h1 {
-        text-align: center;
         letter-spacing: 0.1em;
-        text-transform: none;
         max-width: 500px;
         margin-bottom: 1rem;
         color: rgb(33, 32, 32);
@@ -49,10 +45,4 @@
             color: white;
         }
     }
-}
-.app__header-footer {
-    align-self: center;
-    display: flex;
-
-    justify-content: flex-start;
 }

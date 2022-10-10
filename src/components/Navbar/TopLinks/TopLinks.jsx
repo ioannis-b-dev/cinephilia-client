@@ -1,7 +1,7 @@
 import React from "react";
-import "./MenuLinks.scss";
+import "./TopLinks.scss";
 import { Link } from "react-router-dom";
-const MenuLinks = ({
+const TopLinks = ({
     user,
     logout,
     toggleMenu,
@@ -83,4 +83,4 @@ const MenuLinks = ({
     );
 };
 
-export default MenuLinks;
+export default TopLinks;
