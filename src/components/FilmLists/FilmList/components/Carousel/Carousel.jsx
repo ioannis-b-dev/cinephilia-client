@@ -13,13 +13,10 @@ import "./Carousel.scss";
 import Card from "../Card/Card";
 const Carousel = ({ films }) => {
     return (
-        <Swiper {...options} className="filmlist__carousel">
+        <Swiper {...options} className="carousel">
             {films.map((film) => {
                 return (
-                    <SwiperSlide
-                        key={film.id}
-                        className="filmlist__carousel-slide"
-                    >
+                    <SwiperSlide key={film.id}>
                         <Card film={film} />
                     </SwiperSlide>
                 );
@@ -31,17 +28,18 @@ const Carousel = ({ films }) => {
 export default Carousel;
 
 const options = {
-    slidesPerView: 4,
+    slidesPerView: 3,
     loopedSlidesLimit: false,
-    spaceBetween: 0,
+    spaceBetween: 25,
     loop: true,
     pagination: {
         clickable: true,
     },
     modules: [Pagination, Navigation],
+
     navigation: true,
     breakpoints: {
-        300: {
+        250: {
             slidesPerView: 1,
             spaceBetween: 0,
         },
@@ -55,7 +53,7 @@ const options = {
         },
         1024: {
             slidesPerView: 4,
-            spaceBetween: 0,
+            spaceBetween: 20,
         },
     },
 };

@@ -1,11 +1,15 @@
-import { BsGoogle as GoogleIcon } from "react-icons/bs";
+import {
+    BsGoogle as GoogleIcon,
+    BsHeart as LikeIcon,
+    BsShare as ShareIcon,
+} from "react-icons/bs";
 import { GrEdit as EditIcon } from "react-icons/gr";
 import { RiDeleteBinLine as DeleteBinIcon } from "react-icons/ri";
 import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
 import { TiDelete as DeleteXIcon } from "react-icons/ti";
 import {
     GiFilmProjector as LogoIcon,
-    GiHamburgerMenu as MenuIcon,
+    GiHamburgerMenu as NavToggleIcon,
 } from "react-icons/gi";
 import {
     MdNavigateBefore as PrevIcon,
@@ -13,7 +17,7 @@ import {
 } from "react-icons/md";
 export {
     LogoIcon,
-    MenuIcon,
+    NavToggleIcon,
     GoogleIcon,
     EditIcon,
     SearchIcon,
@@ -21,4 +25,6 @@ export {
     DeleteXIcon,
     PrevIcon,
     NextIcon,
+    LikeIcon,
+    ShareIcon,
 };

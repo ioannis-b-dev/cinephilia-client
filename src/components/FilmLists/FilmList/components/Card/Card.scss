@@ -1,15 +1,15 @@
 .carousel__card {
-    outline: 3px solid #000000;
-    max-width: 100%;
-    aspect-ratio: 2/3;
+    height: 100%;
+    aspect-ratio: 0.7273;
+    // border-radius: 1em;
     img {
         height: 100%;
-        aspect-ratio: 2/3;
+        aspect-ratio: 0.7273;
         object-fit: cover;
     }
     background-color: #000000;
 }
 
 .low-opacity {
-    opacity: 0.3;
+    opacity: 0.5;
 }

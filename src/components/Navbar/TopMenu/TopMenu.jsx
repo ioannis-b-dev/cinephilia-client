@@ -1,7 +1,7 @@
 import React from "react";
 import "./TopMenu.scss";
 import { MenuIcon } from "../../../constants/icons";
-import MenuLinks from "../TopLinks/TopLinks";
+import TopLinks from "../TopLinks/TopLinks";
 import NavHeader from "../NavHeader/NavHeader";
 const TopMenu = ({
     user,
@@ -16,7 +16,7 @@ const TopMenu = ({
         <div className="app__navbar">
             <NavHeader />
             {!isMobileView ? (
-                <MenuLinks
+                <TopLinks
                     user={user}
                     logout={logout}
                     toggleMenu={toggleMenu}

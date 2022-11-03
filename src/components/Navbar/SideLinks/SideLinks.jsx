@@ -13,7 +13,7 @@ const SideLinks = ({
             {user ? (
                 <div>
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(false);
                             toggleMenu(false);
@@ -22,7 +22,7 @@ const SideLinks = ({
                         <Link to="/filmlists">Browse Lists</Link>
                     </button>
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(true);
                             toggleMenu(false);
@@ -31,7 +31,7 @@ const SideLinks = ({
                         <Link to="/filmlists">My Lists</Link>
                     </button>
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             openFilmsModal();
                             toggleMenu(false);
@@ -55,7 +55,7 @@ const SideLinks = ({
                 <div>
                     <Link
                         to="/filmlists"
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(false);
                             toggleMenu(false);
@@ -66,7 +66,7 @@ const SideLinks = ({
                     <Link to="/account" className="test__btn">
                         Sign up
                     </Link>
-                    <Link to="/account" className="app__btn-secondary">
+                    <Link to="/account" className="btn btn-secondary">
                         Log in
                     </Link>
                 </div>

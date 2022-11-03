@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useNavigation = () => {
-    const MOBILE_BREAKING_POINT = 870;
+    const MOBILE_BREAKING_POINT = 720;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobileView, setIsMobileView] = useState(false);
 

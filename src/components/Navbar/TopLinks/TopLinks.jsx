@@ -13,7 +13,7 @@ const TopLinks = ({
             {user ? (
                 <div className="app__navbar-links">
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(false);
                             toggleMenu(false);
@@ -22,7 +22,7 @@ const TopLinks = ({
                         <Link to="/filmlists">Browse Lists</Link>
                     </button>
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(true);
                             toggleMenu(false);
@@ -31,7 +31,7 @@ const TopLinks = ({
                         <Link to="/filmlists">My Lists</Link>
                     </button>
                     <button
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             openFilmsModal();
                             toggleMenu(false);
@@ -44,7 +44,7 @@ const TopLinks = ({
                 <div className="app__navbar-links">
                     <Link
                         to="/filmlists"
-                        className="app__btn-secondary"
+                        className="btn btn-secondary"
                         onClick={() => {
                             setShowMyLists(false);
                             toggleMenu(false);
@@ -71,10 +71,10 @@ const TopLinks = ({
                 </div>
             ) : (
                 <div className="app__navbar-user">
-                    <Link to="/account" className="test__btn">
+                    <Link to="/account" className="app__navbar-logout-btn">
                         Sign up
                     </Link>
-                    <Link to="/account" className="app__btn-secondary">
+                    <Link to="/account" className="app__navbar-logout-btn">
                         Log in
                     </Link>
                 </div>

@@ -1,0 +1,121 @@
+.app {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.page {
+    //mobile displays
+    text-align: center;
+    background-color: var(--color-white);
+    display: grid;
+    place-content: center;
+    padding-inline: 1rem;
+    row-gap: 10%;
+    //medium, big screen displays
+    @media (min-width: 45rem) {
+        text-align: left;
+        column-gap: var(--container-gap, 2rem);
+        grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 45rem)) minmax(
+                2rem,
+                1fr
+            );
+
+        & > *:first-child {
+            grid-column: 2;
+        }
+    }
+}
+.test {
+    display: grid;
+    place-content: center;
+}
+
+.btn {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    line-height: normal;
+    transition: var(--transition);
+    font-family: var(--ff-sans-light);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-white);
+    &-primary {
+        padding: 0.75em 1.25em;
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        a {
+            color: var(--color-white);
+            &:hover {
+                color: var(--color-dark);
+            }
+        }
+
+        &:hover {
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            border: 1px solid var(--color-dark);
+        }
+    }
+
+    &-secondary {
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        background-color: var(--clr-btn-bg-2);
+        color: var(--color-accent);
+        border: var(--clr-btn-border-2);
+
+        a {
+            color: var(--clr-btn-text-1);
+            &:hover {
+                color: var(--clr-btn-hover-text-1);
+                background-color: var(--clr-btn-hover-bg-2);
+            }
+        }
+
+        &:hover {
+            background-color: var(--clr-btn-hover-bg-2);
+            color: #1c1b1b;
+            border: var(--clr-btn-hover-border-2);
+        }
+    }
+}
+
+.test__btn {
+    color: #fff;
+    background-color: #1c1b1b;
+    border-radius: 0%;
+    padding: var(--btn-padding-x) var(--btn-padding-y);
+    font-family: "Futura Md BT", sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    line-height: normal;
+    border: 2px solid;
+    border-radius: 1;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    font-style: normal;
+
+    &:hover {
+        background-color: var(--clr-btn-hover-bg-2);
+        color: #1c1b1b;
+        border: 2px groove rgba($color: #1c1b1b, $alpha: 0.8);
+    }
+}
+
+.btn-close {
+    color: rgb(16, 16, 16);
+    border-color: transparent;
+    cursor: pointer;
+    align-self: center;
+    justify-self: flex-end;
+    & > * {
+        color: rgb(16, 16, 16);
+    }
+}

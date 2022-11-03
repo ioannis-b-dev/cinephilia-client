@@ -8,7 +8,6 @@ const Card = ({ film }) => {
 
     return (
         <div
-            className="carousel__card "
             onMouseEnter={() => setShowLinks(true)}
             onMouseLeave={() => setShowLinks(false)}
         >

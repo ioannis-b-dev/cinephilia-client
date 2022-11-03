@@ -77,98 +77,131 @@ const Auth = () => {
     };
 
     return (
-        <Form onSubmit={handleSubmit} className="authForm">
-            <div className="Form__Header">
-                <h1 className="Form__Title">
+        <div className="authentication-form container">
+            <div className="header ">
+                <h1 className="header__title fs-600 ff-sans-light">
                     {isSignup ? "REGISTER" : "LOGIN"}
                 </h1>
-                <p className="Form__Legend">
+                <p className="header__legend letter-spacing-4">
                     {isSignup
                         ? "Please fill in the information below: "
                         : "Please enter your email and password"}
                 </p>
             </div>
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                    ></input>
+                    <small className="letter-spacing-4">
+                        <span className="text-success">important Info </span> /{" "}
+                        <span className="text-alert"> error message</span>
+                    </small>
+                </div>
+                <div className="form-group">
+                    <label>Password</label>
+                    <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                    ></input>
+                    <small className="letter-spacing-4">
+                        <span className="text-success">important Info </span> /{" "}
+                        <span className="text-alert"> error message</span>
+                    </small>
+                </div>
+                <button className="btn btn-primary">LOGIN</button>
 
-            {isSignup && (
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        className="FORM__INPUT"
+                <p className="text-center">
+                    {isSignup
+                        ? "Already have an account? "
+                        : "Don't have an account? "}
+                    <a className="text-accent" onClick={switchMode}>
+                        {isSignup ? "Sign in" : "Sign up"}
+                    </a>
+                </p>
+            </form>
+            {/* 
+                
+
+                <div className="form-group">
+                    <label>Username</label>
+                    <input
                         type="text"
                         placeholder="Username"
                         name="userName"
                         value={formData.userName}
                         onChange={handleChange}
-                    />
-                </Form.Group>
-            )}
-
-            <Form.Group className="mb-3">
-                <Form.Control
-                    className="FORM__INPUT"
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-
-            <Form.Control
-                className="FORM__INPUT mb-3"
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-            />
-
-            {isSignup && (
+                    ></input>
+                    <small className="letter-spacing-4">
+                        <span className="text-success">important Info </span> /{" "}
+                        <span className="text-alert"> error message</span>
+                    </small>
+                </div>
                 <Form.Control
                     className="FORM__INPUT mb-3"
                     type={showPassword ? "text" : "password"}
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
+                    placeholder="Password"
+                    name="password"
+                    value={formData.password}
                     onChange={handleChange}
                 />
-            )}
 
-            <Form.Check
-                type="checkbox"
-                label="Show Password"
-                onClick={handleShowPassword}
-                value={showPassword}
-            />
-
-            <div className="d-flex flex-column justify-content-center">
-                <button
-                    onSubmit={handleSubmit}
-                    className="FORM__BUTTON"
-                    type="submit"
-                >
-                    {isSignup ? "CREATE MY ACCOUNT" : "Sign in"}
-                </button>
-                {!isSignup && <h3 className="align-self-center">or</h3>}
-                {!isSignup && (
-                    <button className="FORM__BUTTON" onClick={login}>
-                        <GoogleIcon /> Sign in with Google
-                    </button>
+                {isSignup && (
+                    <Form.Control
+                        className="FORM__INPUT mb-3"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleChange}
+                    />
                 )}
 
-                <Button
-                    variant="link"
-                    type="submit"
-                    onClick={switchMode}
-                    className="FORM__LINK"
-                >
-                    {isSignup
-                        ? "Already have an account? Sign in"
-                        : "Don't have an account? Sign up"}
-                </Button>
-            </div>
+                <Form.Check
+                    type="checkbox"
+                    label="Show Password"
+                    onClick={handleShowPassword}
+                    value={showPassword}
+                />
 
-            {alert.show && <Alert msg={alert.msg} type={alert.type} />}
-        </Form>
+                <div className="d-flex flex-column justify-content-center">
+                    <button
+                        onSubmit={handleSubmit}
+                        className="FORM__BUTTON"
+                        type="submit"
+                    >
+                        {isSignup ? "CREATE MY ACCOUNT" : "Sign in"}
+                    </button>
+                    {!isSignup && <h3 className="align-self-center">or</h3>}
+                    {!isSignup && (
+                        <button className="FORM__BUTTON" onClick={login}>
+                            <GoogleIcon /> Sign in with Google
+                        </button>
+                    )}
+
+                    <Button
+                        variant="link"
+                        type="submit"
+                        onClick={switchMode}
+                        className="FORM__LINK"
+                    >
+                        {isSignup
+                            ? "Already have an account? Sign in"
+                            : "Don't have an account? Sign up"}
+                    </Button>
+                </div>
+
+                {alert.show && <Alert msg={alert.msg} type={alert.type} />}
+            </Form> */}
+        </div>
     );
 };
 export default Auth;

@@ -1,6 +1,56 @@
-@import url("http://fonts.cdnfonts.com/css/futura-md-bt");
-@import url("http://fonts.cdnfonts.com/css/futura-lt");
+/* ---------------------------------------------- */
+/*                 Imports                        */
+/* ---------------------------------------------- */
+@import url("http://fonts.cdnfonts.com/css/futura-md-bt?styles=17516,17517,17514,17515,17522,17518,17520,17523,17525,17527,17529,17530,17531,17532,17519,17521,17524,17526,17528,17533,17534");
 
+/* ---------------------------------------------- */
+/*                 Custom properties              */
+/* ---------------------------------------------- */
+:root {
+    /* colors */
+    --color-dark: #161515;
+    --color-white: rgb(255, 251, 251);
+    --color-accent: #950740;
+    --color-alert: #940000;
+    --color-success: #147518;
+    /* font-families */
+    --ff-sans-light: "Futura Lt BT", sans-serif;
+    --ff-sans-medium: "Futura Md BT", sans-serif;
+    --ff-sans-heavy: "Futura Hv BT", sans-serif;
+
+    /* font-sizes */
+    --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+    --fs-800: clamp(3rem, 10vw + 1rem, 9.375rem);
+    --fs-700: 1.5rem;
+    --fs-600: 1rem;
+    --fs-500: 1.75rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    --transition: all 400ms ease;
+}
+@media (min-width: 35rem) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45rem) {
+    :root {
+        /* font-sizes */
+        --fs-800: 6.25rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-400: 1.125rem;
+    }
+}
+/* ---------------------------------------------- */
+/*                  Resets                        */
+/* ---------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -11,58 +61,44 @@
     text-decoration: none;
 }
 
-:root {
-    --color-bg: black;
-    --color-bg-variant: rgb(255, 251, 251);
-    --color-primary: #161515;
-    --color-primary-variant: #950740;
-    --color-white: rgb(255, 251, 251);
-
-    --container-width-lg: 75%;
-    --container-width-md: 86%;
-    --container-width-sm: 90%;
-
-    --transition: all 400ms ease;
-    /* BUTTONS */
-    --clr-btn-bg-2: transparent;
-    --clr-btn-text-1: #950740;
-    --clr-btn-border-1: 2px solid #950740;
-    --clr-btn-border-2: transparent;
-
-    --clr-btn-hover-bg-1: #000000;
-    --clr-btn-hover-bg-2: transparent;
-    --clr-btn-hover-text-1: #ffffff;
-    --clr-btn-hover-border-1: 2px solid #ffffff;
-    --clr-btn-hover-border-2: transparent;
-    /* COLOR THEMES */
-    /* CONTAINERS */
-    /* FONTS */
-
-    --page-height: 100vh;
-    --page-width: 100vw;
-
-    --btn-padding-x: 0.75rem;
-    --btn-padding-y: 0.375rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+    max-width: 50ch;
 }
+
 body {
-    background-color: var(--color-bg);
-    color: var(--color-white);
-    font-family: "Futura MD", sans-serif;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+
+    font-family: var(--ff-sans-light);
+    font-size: var(--fs-400);
     line-height: 1.7;
-    //apply a texture here to background
 }
 
-/* =================== GENERAL STYLES ===================*/
-.container {
-    width: var(--container-width-lg);
-    margin: 0 auto;
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+input[type="text"],
+textarea {
+    background-color: #d1d1d1;
 }
 
-a {
-    color: var(--color-primary-variant);
-    transition: var(--transition);
-    text-decoration: none;
+/* make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
 }
+
 h1,
 h2,
 h3,
@@ -75,141 +111,153 @@ h1 {
     font-size: 2.5rem;
 }
 
-section {
-    margin-top: 8rem;
-    h2,
-    h5 {
-        //set a color here?
-        text-align: center;
-        // margin-bottom: 3rem;
-    }
-}
-
-.btn {
-    cursor: pointer;
-    width: max-content;
-    padding: 0.75rem 1.2rem;
-    text-transform: uppercase;
+a {
+    color: var(--color-accent);
     transition: var(--transition);
-    text-align: center;
-    font-family: "Futura Md BT", sans-serif;
-}
-.btn-primary {
-    border: 1px solid var(--color-primary);
-    color: var(--color-primary-variant);
-    a {
-        color: var(--clr-btn-text-1);
-        &:hover {
-            color: var(--clr-btn-hover-text-1);
-        }
-    }
-
-    &:hover {
-        background-color: var(--clr-btn-hover-bg-1);
-        color: var(--clr-btn-hover-text-1);
-        border: var(--clr-btn-hover-border-1);
-    }
-}
-.app__btn-secondary {
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    font-weight: 400;
-    font-style: normal;
-    background-color: var(--clr-btn-bg-2);
-    color: var(--clr-btn-text-1);
-    border: var(--clr-btn-border-2);
-
-    a {
-        color: var(--clr-btn-text-1);
-        &:hover {
-            color: var(--clr-btn-hover-text-1);
-            background-color: var(--clr-btn-hover-bg-2);
-        }
-    }
-
-    &:hover {
-        background-color: var(--clr-btn-hover-bg-2);
-        color: #1c1b1b;
-        border: var(--clr-btn-hover-border-2);
-    }
-}
-
-.btn-close {
-    color: rgb(16, 16, 16);
-    border-color: transparent;
+    text-decoration: none;
     cursor: pointer;
-    align-self: center;
-    justify-self: flex-end;
-    & > * {
-        color: rgb(16, 16, 16);
-    }
 }
-
-/* =================== MEDIA QUERIES ===================*/
-@media screen and(max-width:1024px) {
-    .container {
-        width: var(--container-width-md);
-    }
-
-    section {
-        margin-top: 6rem;
-    }
+ul a {
+    display: inline-block;
 }
+/* ---------------------------------------------- */
+/*                  Utilities                     */
+/* ---------------------------------------------- */
+/* general */
 
-@media screen and(max-width:600px) {
-    .container {
-        width: var(--container-width-sm);
-    }
-
-    section {
-        margin-top: 4rem;
-    }
-}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-.PageContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    height: var(--page-height);
-    width: 100vw;
-    flex: 1;
-    overflow: auto;
-    margin: 0;
-}
-
-.app__home-page {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    background-position: center center;
+.test-it {
+    border-radius: 1em;
+    display: grid;
+    place-items: center;
     background-size: cover;
-    z-index: -1;
+    background-position: bottom center;
+    box-shadow: 5px 3px 4px rgba($color: #000000, $alpha: 1);
+    background-image: url(./assets/images/background_image_2.jpg);
+}
+.flex {
     display: flex;
-    justify-content: center;
+    gap: var(--gap, 1rem);
 }
 
-.rwk__success {
-    background-color: red;
-    color: white;
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
 }
-.rwk__danger {
-    background-color: green;
-    color: white;
+
+.d-block {
+    display: block;
+}
+.center-y {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container {
+    padding-inline: 1em;
+    margin-inline: auto;
+    max-width: 90rem;
+}
+
+/* colors */
+.bg-dark {
+    background-color: var(--color-dark);
+}
+.bg-accent {
+    background-color: var(--color-accent);
+}
+.bg-white {
+    background-color: var(--color-white);
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.text-dark {
+    color: var(--color-dark);
+}
+.text-accent {
+    color: var(--color-accent);
+}
+.text-white {
+    color: var(--color-white);
+}
+
+.text-alert {
+    color: var(--color-alert);
+}
+.text-success {
+    color: var(--color-success);
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: start;
+}
+.text-right {
+    text-align: end;
+}
+/* typography */
+.ff-sans-light {
+    font-family: var(--ff-sans-light);
+}
+.ff-sans-medium {
+    font-family: var(--ff-sans-medium);
+}
+.ff-sans-heavy {
+    font-family: var(--ff-sans-heavy);
+}
+
+.fs-900 {
+    font-size: var(--fs-900);
+}
+.fs-800 {
+    font-size: var(--fs-800);
+}
+.fs-700 {
+    font-size: var(--fs-700);
+}
+.fs-600 {
+    font-size: var(--fs-600);
+}
+.fs-500 {
+    font-size: var(--fs-500);
+}
+.fs-400 {
+    font-size: var(--fs-400);
+}
+.fs-300 {
+    font-size: var(--fs-300);
+}
+.fs-200 {
+    font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.letter-spacing-1 {
+    letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+    letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+    letter-spacing: 2.35px;
+}
+
+.letter-spacing-4 {
+    letter-spacing: 1.35px;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
 }

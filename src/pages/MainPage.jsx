@@ -12,11 +12,11 @@ const MainPage = () => {
     }, []);
 
     return (
-        <>
+        <main className="main-page">
             <FilmLists />
             {showFilmsForm && <FilmsForm />}
             {showFilmAdd && <FilmAdd />}
-        </>
+        </main>
     );
 };
 
