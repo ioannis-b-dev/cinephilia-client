@@ -1,17 +1,15 @@
-.app__loader {
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    svg {
-        fill: #65b6ee;
-        rect {
-            fill: #65b6ee;
-        }
+$staticC: black;
+$animatedC: red;
+.loader {
+    text {
+        alignment-baseline: middle;
+        text-anchor: middle;
     }
 
-    rect {
-        fill: #65b6ee;
+    .static {
+        fill: $staticC;
+    }
+    .animated {
+        fill: $animatedC;
     }
 }

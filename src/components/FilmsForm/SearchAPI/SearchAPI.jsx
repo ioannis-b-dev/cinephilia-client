@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
 import { Alert, Loader } from "../../../common";
 import { DeleteXIcon, SearchIcon } from "../../../constants/icons";
 import "./SearchAPI.scss";
+import { InputText } from "../../../common/Form";
 import { useImdbAPI } from "../../../hooks";
-const SearchAPI = ({ getFilmData, isLoading, isError }) => {
+const SearchAPI = ({ getFilmData, isError }) => {
     const [searchMovie, setSearchMovie] = useState("");
+    const [isLoading, setLoading] = useState(false);
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
     const [suggestionsList, setSuggestionsList] = useState([]);
     const { getSuggestions, suggestions, clearSuggestions } = useImdbAPI();
@@ -13,8 +15,9 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchMovie || searchMovie === "") return;
+        setLoading(true);
         await getSuggestions(searchMovie);
-
+        setLoading(false);
         setSearchMovie("");
     };
 
@@ -52,36 +55,33 @@ const SearchAPI = ({ getFilmData, isLoading, isError }) => {
     };
     return (
         <>
-            <Form.Label>Search Films</Form.Label>
             <InputGroup className="test-this">
-                <Form.Control
+                <InputText
+                    name="searchAPI"
                     type="text"
-                    className="FORM__INPUT no-brd "
-                    placeholder="Search for movies"
-                    required
+                    label="Search films"
+                    placeholder="Search for a film to add"
                     value={searchMovie}
                     onChange={(e) => setSearchMovie(e.target.value)}
-                />
-
-                <InputGroup.Text className="py-0 px-0 debug-this">
+                >
                     {!isLoading ? (
                         suggestionsList.length > 0 ? (
                             <DeleteXIcon
-                                className="app__search-icon "
+                                className="icon"
                                 type="button"
                                 onClick={deleteSuggestions}
                             />
                         ) : (
                             <SearchIcon
-                                className="app__search-icon"
+                                className="icon icon-scale"
                                 type="submit"
                                 onClick={handleSearch}
                             />
                         )
                     ) : (
-                        <Loader />
+                        <Loader size={30} />
                     )}
-                </InputGroup.Text>
+                </InputText>
             </InputGroup>
 
             {suggestionsList.length > 0 && (

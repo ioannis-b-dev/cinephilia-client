@@ -4,11 +4,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 200px;
-}
-
-.app__listform-title {
-    margin-bottom: 1em;
+    min-width: 300px;
+    max-width: 100vw;
 }
 
 .app__listform-films {

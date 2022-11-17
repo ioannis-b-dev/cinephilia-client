@@ -1,25 +1,54 @@
-.app__alert {
-    margin-bottom: 1rem;
-    height: 1.25rem;
-    display: grid;
+$success-color: yellowgreen;
+$danger-color: #c32020;
+.alert {
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 0.7rem;
-    border-radius: 0.25rem;
-    letter-spacing: var(--spacing);
-    text-transform: capitalize;
-    color: #721c24;
-    background: #f8d7da;
+    gap: 0.5em;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px -12px 30px,
+        rgba(0, 0, 0, 0.08) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 6px 13px,
+        rgba(0, 0, 0, 0.07) 0px -3px 5px;
+    border-radius: 0.2em;
+    padding: 0.5em;
+    font-size: 12px;
+    letter-spacing: 0.08em;
 }
 
-.app__alert-success {
-    background-color: #0d5d0f;
+#show {
+    display: flex;
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+#hide {
+    display: none;
 }
 
-.app__alert-error {
-    background-color: #721c24;
+.success {
+    background-color: $success-color;
+    color: black;
 }
 
-.app__alert-text {
+.danger {
+    background-color: $danger-color;
     color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }

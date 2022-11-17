@@ -1,53 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Loader.scss";
+import { arc } from "d3";
+import { useEffect, useRef } from "react";
+const Loader = ({ size }) => {
+    const radius = size / 2 - 5;
+    const spacing = radius / 2;
+    const [offset, setOffset] = useState(0);
+    const requestRef = useRef();
+    const previousTimeRef = useRef();
 
-const Loader = () => (
-    <div className="app__loader">
-        <svg
-            version="1.1"
-            id="Layer_1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="54px"
-            height="60px"
-            viewBox="0 0 24 30"
-        >
-            <rect x="0" y="0" width="3" height="10" fill="#333">
-                <animateTransform
-                    attributeType="xml"
-                    attributeName="transform"
-                    type="translate"
-                    values="0 0; 0 20; 0 0"
-                    begin="0"
-                    dur="0.6s"
-                    repeatCount="indefinite"
-                />
-            </rect>
-            <rect x="10" y="0" width="3" height="10" fill="#333">
-                <animateTransform
-                    attributeType="xml"
-                    attributeName="transform"
-                    type="translate"
-                    values="0 0; 0 20; 0 0"
-                    begin="0.2s"
-                    dur="0.6s"
-                    repeatCount="indefinite"
-                />
-            </rect>
-            <rect x="20" y="0" width="3" height="10" fill="#333">
-                <animateTransform
-                    attributeType="xml"
-                    attributeName="transform"
-                    type="translate"
-                    values="0 0; 0 20; 0 0"
-                    begin="0.4s"
-                    dur="0.6s"
-                    repeatCount="indefinite"
-                />
-            </rect>
+    const animate = (time) => {
+        if (previousTimeRef.current !== undefined) {
+            const deltaTime = time - previousTimeRef.current;
+
+            // Pass on a function to the setter of the state
+            // to make sure we always have the latest state
+            setOffset((prevCount) => (prevCount + deltaTime * 0.005) % 100);
+        }
+        previousTimeRef.current = time;
+        requestRef.current = requestAnimationFrame(animate);
+    };
+
+    useEffect(() => {
+        requestRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(requestRef.current);
+    }); // Make sure the effect runs only once
+
+    const loaderArc = arc()
+        .innerRadius(radius - spacing)
+        .outerRadius(radius)
+        .startAngle(offset)
+        .endAngle(offset + Math.PI / 2);
+
+    const loaderArcStatic = arc()
+        .innerRadius(radius - spacing)
+        .outerRadius(radius)
+        .startAngle(0)
+        .endAngle(Math.PI * 2);
+
+    return (
+        <svg className="loader" width={size} height={size}>
+            <g transform={`translate(${size / 2},${size / 2})`}>
+                <path d={loaderArcStatic()} className="static"></path>
+                <path d={loaderArc()} className="animated"></path>
+            </g>
         </svg>
-    </div>
-);
+    );
+};
 
 export default Loader;

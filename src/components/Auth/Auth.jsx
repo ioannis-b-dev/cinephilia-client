@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signin, signup } from "../../redux/actions/auth";
@@ -12,7 +11,7 @@ import "./Auth.scss";
 const Auth = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
-    const [alert, setAlert] = useState({ show: false, msg: "" });
+    const [alert, setAlert] = useState({ type: "", msg: "" });
     const [formData, setFormData] = useState({
         userName: "",
         email: "",
@@ -21,15 +20,13 @@ const Auth = () => {
     });
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const alertRef = useRef(null);
     const authAttempt = useSelector((state) => state.auth.authData);
 
     useEffect(() => {
         if (authAttempt?.error) {
-            setAlert({ show: true, msg: authAttempt.error });
-            const timeout = setTimeout(() => {
-                setAlert({ show: false, msg: "" });
-            }, 3000);
-            return () => clearTimeout(timeout);
+            setAlert({ type: "danger", msg: authAttempt.error });
+            alertRef.current.show();
         }
     }, [authAttempt]);
 
@@ -88,6 +85,7 @@ const Auth = () => {
                         : "Please enter your email and password"}
                 </p>
             </div>
+            <Alert ref={alertRef} message={alert.msg} type={alert.type} />
             <form className="form" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Email</label>
@@ -98,10 +96,10 @@ const Auth = () => {
                         value={formData.email}
                         onChange={handleChange}
                     ></input>
-                    <small className="letter-spacing-4">
+                    {/* <small className="letter-spacing-4">
                         <span className="text-success">important Info </span> /{" "}
                         <span className="text-alert"> error message</span>
-                    </small>
+                    </small> */}
                 </div>
                 <div className="form-group">
                     <label>Password</label>
@@ -112,22 +110,34 @@ const Auth = () => {
                         value={formData.password}
                         onChange={handleChange}
                     ></input>
-                    <small className="letter-spacing-4">
+                    {/* <small className="letter-spacing-4">
                         <span className="text-success">important Info </span> /{" "}
                         <span className="text-alert"> error message</span>
-                    </small>
+                    </small> */}
                 </div>
-                <button className="btn btn-primary">LOGIN</button>
-
+                <button className="btn btn-primary">
+                    {isSignup ? "REGISTER" : "LOGIN"}
+                </button>
+                {!isSignup && (
+                    <h3 className="text-center fs-400 ff-sans-light line-height-1">
+                        OR
+                    </h3>
+                )}
+                {!isSignup && (
+                    <button className="btn btn-primary" onClick={login}>
+                        <GoogleIcon /> <span>OOGLE LOGIN</span>
+                    </button>
+                )}
                 <p className="text-center">
                     {isSignup
                         ? "Already have an account? "
                         : "Don't have an account? "}
-                    <a className="text-accent" onClick={switchMode}>
+                    <button className="text-accent" onClick={switchMode}>
                         {isSignup ? "Sign in" : "Sign up"}
-                    </a>
+                    </button>
                 </p>
             </form>
+
             {/* 
                 
 

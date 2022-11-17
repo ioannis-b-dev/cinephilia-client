@@ -1,13 +1,16 @@
+//APP
 .app {
     min-height: 100vh;
     display: grid;
     grid-template-rows: min-content 1fr;
+    background-color: var(--color-white);
+    padding: 0.2em 0.2em;
 }
-
+//PAGES
 .page {
     //mobile displays
     text-align: center;
-    background-color: var(--color-white);
+    background-color: var(--color-accent);
     display: grid;
     place-content: center;
     padding-inline: 1rem;
@@ -26,15 +29,11 @@
         }
     }
 }
-.test {
-    display: grid;
-    place-content: center;
-}
-
+//BUTTONS
 .btn {
     cursor: pointer;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
     line-height: normal;
     transition: var(--transition);
     font-family: var(--ff-sans-light);
@@ -82,40 +81,22 @@
         }
     }
 }
-
-.test__btn {
-    color: #fff;
-    background-color: #1c1b1b;
-    border-radius: 0%;
-    padding: var(--btn-padding-x) var(--btn-padding-y);
-    font-family: "Futura Md BT", sans-serif;
-    position: relative;
-    display: inline-block;
-    padding: 10px 25px;
-    line-height: normal;
-    border: 2px solid;
-    border-radius: 1;
-    text-transform: uppercase;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    font-weight: 300;
-    font-style: normal;
+//ICONS
+.icon {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-dark);
+    width: 30px;
+    height: 30px;
 
     &:hover {
-        background-color: var(--clr-btn-hover-bg-2);
-        color: #1c1b1b;
-        border: 2px groove rgba($color: #1c1b1b, $alpha: 0.8);
+        transform: scale(1.1);
     }
-}
-
-.btn-close {
-    color: rgb(16, 16, 16);
-    border-color: transparent;
-    cursor: pointer;
-    align-self: center;
-    justify-self: flex-end;
-    & > * {
-        color: rgb(16, 16, 16);
+    &-scale {
+        $scale: 0.7;
+        transform: scale($scale);
+        &:hover {
+            transform: scale(1.1 * $scale);
+        }
     }
 }

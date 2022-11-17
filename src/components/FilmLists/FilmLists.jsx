@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { useGlobalContext } from "../../hooks";
-import FilmList from "./FilmList/FilmList";
+import { useGlobalContext, useAuth } from "../../hooks";
+import { FilmList } from "./components";
 import "./FilmLists.scss";
 
 const FilmCategories = () => {
-    const location = useLocation();
+    const { user } = useAuth();
     const { showMyLists } = useGlobalContext();
-    const [user, setUser] = useState(
-        JSON.parse(localStorage.getItem("profile"))
-    );
+
     const filmLists = useSelector((state) => state.posts).reverse();
     const myFilmLists = useSelector((state) =>
         state.posts.filter(
@@ -19,10 +16,6 @@ const FilmCategories = () => {
                 list.creator === user?.userObject?.sub
         )
     );
-
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem("profile")));
-    }, [location]);
 
     return (
         <div className="filmlists__container">

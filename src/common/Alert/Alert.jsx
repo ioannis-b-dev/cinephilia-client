@@ -1,17 +1,26 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useState, forwardRef, useImperativeHandle } from "react";
 import "./Alert.scss";
+const Alert = forwardRef((props, ref) => {
+    const [showAlert, setShowAlert] = useState(false);
 
-const Alert = ({ msg, type }) => {
+    useImperativeHandle(ref, () => ({
+        show() {
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
+        },
+    }));
     return (
-        <Container
-            className={`text-center rounded ${
-                type === "success" ? "app__alert-success" : "app__alert-error"
+        <div
+            className={`alert ${
+                props.type === "success" ? "success" : "danger"
             }`}
+            id={showAlert ? "show" : "hide"}
         >
-            <p className="app__alert-text">{msg}</p>
-        </Container>
+            <div className="message">{props.message}</div>
+        </div>
     );
-};
+});
 
 export default Alert;

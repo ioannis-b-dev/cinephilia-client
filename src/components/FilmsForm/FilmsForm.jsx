@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createFilmList, updateFilmList } from "../../redux/actions/posts";
 
 import ModalWrap from "../../wrappers/ModalWrap";
+import { InputText } from "../../common/Form";
 const FilmsForm = () => {
     //HOOKS
     const isInitialLoad = useRef(false);
@@ -50,6 +51,9 @@ const FilmsForm = () => {
     useEffect(() => {
         if (currentFilmList) setFilmListData(currentFilmList);
     }, [currentFilmList]);
+    useEffect(() => {
+        console.log(isLoading);
+    }, [isLoading]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -97,29 +101,22 @@ const FilmsForm = () => {
 
     return (
         <Form onSubmit={handleSubmit} className="app__listform ">
-            {/* FILM LIST TITLE */}
-            <Form.Group className="app__listform-title">
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    className="FORM__INPUT "
-                    placeholder="Enter list title"
-                    value={filmListData.title}
-                    onChange={(e) =>
-                        setFilmListData({
-                            ...filmListData,
-                            title: e.target.value,
-                        })
-                    }
-                />
-            </Form.Group>
+            <InputText
+                name="listTitle"
+                type="text"
+                label="Title"
+                placeholder="Enter List Title"
+                value={filmListData.title}
+                onChange={(e) =>
+                    setFilmListData({
+                        ...filmListData,
+                        title: e.target.value,
+                    })
+                }
+            />
 
             {/* Movie Search*/}
-            <SearchAPI
-                getFilmData={handleRequest}
-                isLoading={isLoading}
-                isError={isError}
-            />
+            <SearchAPI getFilmData={handleRequest} isError={isError} />
 
             {/* Current Movies List*/}
             {filmListData.films.length > 0 && (

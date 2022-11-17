@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFilmLists } from "./redux/actions/posts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import Navigation from "./components/Navigation";
 import { Home, Account, MainPage } from "./pages";
 import "./App.scss";
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className="app">
-                <Navbar />
+                <Navigation />
 
                 <Routes>
                     <Route path="/" element={<Home />} />

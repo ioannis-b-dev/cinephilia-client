@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../hooks";
+import { DeleteXIcon } from "../constants/icons";
 import "./ModalWrap.scss";
 
 const ModalWrap = (Component, cTitle) =>
@@ -10,14 +11,11 @@ const ModalWrap = (Component, cTitle) =>
                 <div className="modal__container">
                     <div className="modal__header">
                         <h3>{cTitle}</h3>
-                        <button
-                            type="button"
-                            className="btn-close "
-                            aria-label="Close"
-                            onClick={closeModal}
-                        ></button>
+                        <DeleteXIcon className="icon" onClick={closeModal} />
                     </div>
-                    <Component />
+                    <div className="modal__body">
+                        <Component />
+                    </div>
                 </div>
             </div>
         );
