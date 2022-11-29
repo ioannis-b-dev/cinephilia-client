@@ -4,7 +4,6 @@
     @media (min-width: 45rem) {
         text-align: left;
         grid-template-columns: 1fr 6fr;
-        // padding: 4em;
         &__footer {
             display: flex;
             flex-direction: column;
@@ -18,11 +17,12 @@
     justify-content: center;
     line-height: 1;
     background-color: whitesmoke;
-    border-radius: 1em 0 0 1em;
+    border-radius: 0.1em 0 0 0.1em;
     padding: 1.5em;
     font-size: 12px;
     border: 1px solid black;
     border-right: none;
+    grid-row: 2;
 
     &-desc {
         display: flex;
@@ -39,19 +39,7 @@
             height: 20px;
         }
     }
-}
-.filmlist__footer {
-    background-color: var(--color-success);
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 1em;
-    &-icons {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-    }
-    &-desc {
-        display: flex;
-        gap: 2em;
+    @media (min-width: 45rem) {
+        grid-row: 1;
     }
 }

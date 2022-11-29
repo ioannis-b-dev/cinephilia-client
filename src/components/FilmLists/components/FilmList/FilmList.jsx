@@ -1,9 +1,9 @@
 import React from "react";
 import "./FilmList.scss";
-import { Carousel } from "../../components";
-import { LikeIcon, ShareIcon } from "../../../../constants/icons";
-const FilmList = ({ filmlist, index }) => {
-    const { films, title, name } = filmlist;
+import { Carousel, CTA } from "../../components";
+const FilmList = ({ filmlist }) => {
+    const { films, title, name, creator, _id } = filmlist;
+
     return (
         <section className="filmlist">
             <div className="info">
@@ -11,10 +11,7 @@ const FilmList = ({ filmlist, index }) => {
                     <h3 className="text-center fs-600">{title}</h3>
                     <h3 className="text-center">@{name}</h3>
                 </div>
-                <div className="info-cta">
-                    <LikeIcon />
-                    <ShareIcon />
-                </div>
+                <CTA creator={creator} listId={_id} />
             </div>
             <Carousel films={films} />
         </section>
@@ -22,14 +19,3 @@ const FilmList = ({ filmlist, index }) => {
 };
 
 export default FilmList;
-
-/* <div className="filmlist__footer">
-                <div className="filmlist__footer-icons">
-                    <LikeIcon />
-                    <ShareIcon />
-                </div>
-                <div className="filmlist__footer-desc">
-                    <h3>@{name}</h3>
-                    <h3>{title}</h3>
-                </div>
-            </div> */

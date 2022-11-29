@@ -15,7 +15,7 @@ const Alert = forwardRef((props, ref) => {
         <div
             className={`alert ${
                 props.type === "success" ? "success" : "danger"
-            }`}
+            } ${props.overlay && "alert-overlay"}`}
             id={showAlert ? "show" : "hide"}
         >
             <div className="message">{props.message}</div>

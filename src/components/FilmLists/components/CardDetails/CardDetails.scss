@@ -8,12 +8,15 @@
     justify-content: center;
     align-items: flex-start;
     gap: 0.8em;
+    background-color: #1c1b1b88;
 }
 
 .card__link {
-    color: var(--color-dark);
-    border-bottom: 2px solid var(--color-dark);
-    background-color: transparent;
+    color: var(--color-accent);
+    border-bottom: 0.8px solid var(--color-accent);
+    border-right: 0.8px solid var(--color-accent);
+    // border-bottom: 2px solid var(--color-white);
+    background-color: #1c1b1b;
     font-family: "Futura Md BT", sans-serif;
     position: relative;
     display: inline-block;

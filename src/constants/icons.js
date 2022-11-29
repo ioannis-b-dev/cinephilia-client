@@ -2,9 +2,11 @@ import {
     BsGoogle as GoogleIcon,
     BsHeart as LikeIcon,
     BsShare as ShareIcon,
+    BsTrash as DeleteBinIcon,
+    BsPencil as EditIcon,
 } from "react-icons/bs";
-import { GrEdit as EditIcon } from "react-icons/gr";
-import { RiDeleteBinLine as DeleteBinIcon } from "react-icons/ri";
+
+// import { RiDeleteBinLine as DeleteBinIcon } from "react-icons/ri";
 import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
 import { TiDelete as DeleteXIcon } from "react-icons/ti";
 import {

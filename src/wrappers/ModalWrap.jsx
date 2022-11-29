@@ -4,17 +4,21 @@ import { DeleteXIcon } from "../constants/icons";
 import "./ModalWrap.scss";
 
 const ModalWrap = (Component, cTitle) =>
-    function HOC() {
-        const { closeModal } = useGlobalContext();
+    function HOC(props) {
+        // const { closeModal } = useGlobalContext();
+        console.log(props.closeModal);
         return (
             <div className="modal">
                 <div className="modal__container">
                     <div className="modal__header">
                         <h3>{cTitle}</h3>
-                        <DeleteXIcon className="icon" onClick={closeModal} />
+                        <DeleteXIcon
+                            className="icon"
+                            onClick={props.closeModal}
+                        />
                     </div>
                     <div className="modal__body">
-                        <Component />
+                        <Component {...props} />
                     </div>
                 </div>
             </div>

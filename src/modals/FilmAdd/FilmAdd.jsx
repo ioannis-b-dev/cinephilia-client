@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./FilmAdd.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { updateFilmList } from "../../../redux/actions/posts";
-import { useGlobalContext } from "../../../hooks";
-import { Button } from "react-bootstrap";
-import Alert from "../../../common/Alert/Alert";
-import ModalWrap from "../../../wrappers/ModalWrap";
-const FilmAdd = () => {
+import { updateFilmList } from "../../redux/actions/posts";
+
+import Alert from "../../common/Alert/Alert";
+import ModalWrap from "../../wrappers/ModalWrap";
+const FilmAdd = ({ currentFilm }) => {
     const [alert, setAlert] = useState({ show: false, msg: "", type: "" });
     const dispatch = useDispatch();
-    const { currentFilm } = useGlobalContext();
+
     const user = JSON.parse(localStorage.getItem("profile"));
 
     const myFilmLists = useSelector((state) =>
@@ -54,17 +53,17 @@ const FilmAdd = () => {
     };
 
     return (
-        <div>
+        <div className="filmadd">
             {myFilmLists.length > 0
                 ? myFilmLists.map((filmlist) => {
                       return (
-                          <Button
+                          <button
                               key={filmlist._id}
-                              variant="link"
+                              className="btn btn-secondary"
                               onClick={() => addFilmToList(filmlist)}
                           >
                               {filmlist.title}
-                          </Button>
+                          </button>
                       );
                   })
                 : "You currently dont have any lists"}
@@ -74,4 +73,4 @@ const FilmAdd = () => {
     );
 };
 
-export default ModalWrap(FilmAdd, "Add to List");
+export default ModalWrap(FilmAdd, "Add to your Lists");

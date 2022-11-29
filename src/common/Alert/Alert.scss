@@ -1,20 +1,27 @@
 $success-color: yellowgreen;
 $danger-color: #c32020;
+$success-text-color: black;
+$danger-text-color: white;
 .alert {
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
     box-shadow: rgba(0, 0, 0, 0.08) 0px -12px 30px,
         rgba(0, 0, 0, 0.08) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 6px 13px,
         rgba(0, 0, 0, 0.07) 0px -3px 5px;
     border-radius: 0.2em;
     padding: 0.5em;
-    font-size: 12px;
+    font-size: 0.8rem;
     letter-spacing: 0.08em;
+    &-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
 }
 
 #show {
-    display: flex;
+    display: grid;
+    place-items: center;
     animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
 }
 #hide {
@@ -23,12 +30,12 @@ $danger-color: #c32020;
 
 .success {
     background-color: $success-color;
-    color: black;
+    color: $success-text-color;
 }
 
 .danger {
     background-color: $danger-color;
-    color: white;
+    color: $danger-text-color;
 }
 
 @keyframes fadeIn {
@@ -37,14 +44,14 @@ $danger-color: #c32020;
         opacity: 0;
     }
     to {
-        bottom: 30px;
+        bottom: 1.5rem;
         opacity: 1;
     }
 }
 
 @keyframes fadeOut {
     from {
-        bottom: 30px;
+        bottom: 1.5rem;
         opacity: 1;
     }
     to {

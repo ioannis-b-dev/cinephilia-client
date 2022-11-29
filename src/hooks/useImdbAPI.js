@@ -13,7 +13,6 @@ function useImdbAPI() {
     const getSuggestions = async (search) => {
         setIsLoading(true);
         const response = await axios(`${URL}/${search}`);
-        console.log(isLoading);
         const {
             data: { results },
         } = response;

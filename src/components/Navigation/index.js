@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import "./styles.scss";
 
 import { useNavigation } from "../../hooks";
@@ -6,17 +6,30 @@ import { TopNav, SideNav, NavHeader } from "./components";
 
 const Navbar = () => {
     const { isMobileView, isMenuOpen, setIsMenuOpen } = useNavigation();
+    const navRef = useRef(null);
+    const [yoffset, setYoffset] = useState(0);
+
+    useLayoutEffect(() => {
+        //positions sidemenu after navheader + 1px for border bottom
+        setYoffset(navRef.current.offsetHeight);
+    }, [isMobileView]);
+
     return (
-        <header className="primary-header">
+        <div className="primary-header" ref={navRef}>
             <NavHeader />
             <TopNav
                 isMobileView={isMobileView}
                 isMenuOpen={isMenuOpen}
-                setIsMenuOpen={setIsMenuOpen}
+                toggleMenu={setIsMenuOpen}
             />
 
-            {isMobileView && <SideNav isMenuOpen={isMenuOpen} />}
-        </header>
+            <SideNav
+                isMobileView={isMobileView}
+                isMenuOpen={isMenuOpen}
+                toggleMenu={setIsMenuOpen}
+                yoffset={yoffset}
+            />
+        </div>
     );
 };
 

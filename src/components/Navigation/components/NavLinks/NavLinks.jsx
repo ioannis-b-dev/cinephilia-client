@@ -3,63 +3,83 @@ import { Link } from "react-router-dom";
 import { useGlobalContext, useAuth } from "../../../../hooks";
 import "../../styles.scss";
 
-const NavLinks = () => {
+const NavLinks = ({ toggleMenu }) => {
     const { user, logout } = useAuth();
-    const { openFilmsModal, setShowMyLists } = useGlobalContext();
+    const { setShowMyLists, openFilmsModal } = useGlobalContext();
     return (
-        <ul className="nav__list">
-            <li>
-                <Link
-                    to="/filmlists"
-                    className="nav__link"
-                    onClick={() => setShowMyLists(false)}
-                >
-                    Browse Lists
-                </Link>
-            </li>
+        <div className="links">
+            <Link
+                to="/filmlists"
+                className="link"
+                onClick={() => {
+                    setShowMyLists(false);
+                    toggleMenu(false);
+                }}
+            >
+                Browse Lists
+            </Link>
+
             {user && (
                 <>
-                    <li>
-                        <Link
-                            to="/filmlists"
-                            onClick={() => setShowMyLists(true)}
-                            className="nav__link"
-                        >
-                            My Lists
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/filmlists"
-                            onClick={openFilmsModal}
-                            className="nav__link"
-                        >
-                            Create List
-                        </Link>
-                    </li>
+                    <Link
+                        to="/filmlists"
+                        onClick={() => {
+                            setShowMyLists(true);
+                            toggleMenu(false);
+                        }}
+                        className="link"
+                    >
+                        My Lists
+                    </Link>
+
+                    <Link
+                        to="/filmlists"
+                        onClick={() => {
+                            openFilmsModal();
+                            toggleMenu(false);
+                        }}
+                        className="link"
+                    >
+                        Create List
+                    </Link>
                 </>
             )}
 
             {user ? (
-                <li className="nav-user">
-                    <span className="nav__link username">
+                <div className="nav-user">
+                    <span className="link username">
                         {user.userObject.userName || user.userObject.name}
                     </span>
-                    <Link to="/" onClick={logout} className="nav__link">
+                    <Link
+                        to="/"
+                        onClick={() => {
+                            logout();
+                            toggleMenu(false);
+                        }}
+                        className="link"
+                    >
                         Logout
                     </Link>
-                </li>
+                </div>
             ) : (
-                <li className="nav-user">
-                    <Link to="/account" className="username nav__link">
+                <div className="nav-user">
+                    <Link
+                        to="/account"
+                        className="username link"
+                        onClick={() => toggleMenu(false)}
+                    >
                         Sign up
                     </Link>
-                    <Link to="/account" className="nav__link">
+                    <Link
+                        to="/account"
+                        className="nav__link"
+                        onClick={() => toggleMenu(false)}
+                    >
                         Log in
                     </Link>
-                </li>
+                </div>
             )}
-        </ul>
+        </div>
     );
 };
 

@@ -13,12 +13,12 @@ import { createFilmList, updateFilmList } from "../../redux/actions/posts";
 
 import ModalWrap from "../../wrappers/ModalWrap";
 import { InputText } from "../../common/Form";
-const FilmsForm = () => {
+const FilmsForm = ({ closeModal }) => {
     //HOOKS
     const isInitialLoad = useRef(false);
     const dispatch = useDispatch();
-    const { closeModal, currentId, setCurrentId } = useGlobalContext();
-    const { movieData, isLoading, isError, getFilmData } = useImdbAPI();
+    const { currentId, setCurrentId } = useGlobalContext();
+    const { movieData, isError, getFilmData } = useImdbAPI();
     const currentFilmList = useSelector((state) =>
         currentId ? state.posts.find((list) => list._id === currentId) : null
     );
@@ -51,9 +51,6 @@ const FilmsForm = () => {
     useEffect(() => {
         if (currentFilmList) setFilmListData(currentFilmList);
     }, [currentFilmList]);
-    useEffect(() => {
-        console.log(isLoading);
-    }, [isLoading]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -1,9 +1,10 @@
 import React from "react";
-import { useGlobalContext } from "../../../../hooks";
+
 import "./CardDetails.scss";
+import { useGlobalContext } from "../../../../hooks";
 const CardDetails = ({ film }) => {
     const { youtubeTrailerLink, urlImdb } = film;
-    const { openMyListsModal } = useGlobalContext();
+    const { openFilmAddModal } = useGlobalContext();
     return (
         <div className="carousel__card-details">
             <a
@@ -26,7 +27,7 @@ const CardDetails = ({ film }) => {
 
             <button
                 className="card__link"
-                onClick={() => openMyListsModal(film)}
+                onClick={() => openFilmAddModal(film)}
             >
                 Add to my List
             </button>

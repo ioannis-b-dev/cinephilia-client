@@ -2,15 +2,18 @@ import React from "react";
 import "./TopNav.scss";
 import NavLinks from "../NavLinks/NavLinks";
 import { NavToggleIcon } from "../../../../constants/icons";
-const TopNav = ({ isMobileView, setIsMenuOpen, isMenuOpen }) => {
+const TopNav = ({ isMobileView, toggleMenu, isMenuOpen }) => {
     return (
-        <nav className="topnav">
+        <div className="topnav">
             {isMobileView ? (
-                <NavToggleIcon onClick={() => setIsMenuOpen(!isMenuOpen)} />
+                <NavToggleIcon
+                    className="header-icon"
+                    onClick={() => toggleMenu(!isMenuOpen)}
+                />
             ) : (
-                <NavLinks />
+                <NavLinks toggleMenu={toggleMenu} />
             )}
-        </nav>
+        </div>
     );
 };
 

@@ -4,14 +4,17 @@
     background-color: whitesmoke;
     border: 1px solid black;
     max-width: 100%;
-    border-radius: 0 1em 1em 0;
+    border-radius: 0 0.5em 0.5em 0;
     padding: 1em;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    color: var(--color-dark);
-    background-color: red;
+    color: var(--color-accent);
+    background-color: transparent;
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 
 .swiper-slide,
