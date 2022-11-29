@@ -1,12 +1,9 @@
 import React from "react";
-import { useGlobalContext } from "../hooks";
 import { DeleteXIcon } from "../constants/icons";
 import "./ModalWrap.scss";
 
 const ModalWrap = (Component, cTitle) =>
     function HOC(props) {
-        // const { closeModal } = useGlobalContext();
-        console.log(props.closeModal);
         return (
             <div className="modal">
                 <div className="modal__container">
