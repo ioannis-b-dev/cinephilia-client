@@ -10,8 +10,9 @@ export const signin = (formData, navigate) => async (dispatch) => {
         console.log(error);
         //user does not exist
         //Invalid Credentials
-        const auth_error = error.response.data.message;
+        let auth_error = error.response.data.message;
         dispatch({ type: AUTH_ERROR, auth_error });
+        auth_error = null;
     }
 };
 

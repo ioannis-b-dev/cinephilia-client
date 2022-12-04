@@ -8,13 +8,27 @@
     justify-content: center;
     align-items: flex-start;
     gap: 0.8em;
-    background-color: #1c1b1b88;
+    background-color: transparent;
+    &::before {
+        content: "";
+        // background-size: cover;
+        position: absolute;
+        background-color: #1c1b1b;
+        background-image: url(../../../../assets/images/TEX01.jpg);
+        backdrop-filter: blur(20px);
+        opacity: 0.2;
+        mix-blend-mode: multiply;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+    }
 }
 
 .card__link {
     color: var(--color-accent);
-    border-bottom: 0.8px solid var(--color-accent);
-    border-right: 0.8px solid var(--color-accent);
+    box-shadow: 1px 1px 5px var(--color-accent);
+
     // border-bottom: 2px solid var(--color-white);
     background-color: #1c1b1b;
     font-family: "Futura Md BT", sans-serif;
@@ -26,6 +40,7 @@
 
     &:hover {
         color: var(--color-accent);
-        border-bottom: 2px solid var(--color-accent);
+        border-bottom: 1px solid var(--color-accent);
+        border-right: 1px solid var(--color-accent);
     }
 }

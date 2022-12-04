@@ -74,12 +74,12 @@ const Auth = () => {
     };
 
     return (
-        <div className="authentication-form container">
+        <div className="authentication-form ">
             <div className="header ">
                 <h1 className="header__title fs-600 ff-sans-light">
                     {isSignup ? "REGISTER" : "LOGIN"}
                 </h1>
-                <p className="header__legend letter-spacing-4">
+                <p className="header__legend letter-spacing-4 text-center">
                     {isSignup
                         ? "Please fill in the information below: "
                         : "Please enter your email and password"}
@@ -87,6 +87,18 @@ const Auth = () => {
             </div>
             <Alert ref={alertRef} message={alert.msg} type={alert.type} />
             <form className="form" onSubmit={handleSubmit}>
+                {isSignup && (
+                    <div className="form-group">
+                        <label>Username</label>
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            name="userName"
+                            value={formData.userName}
+                            onChange={handleChange}
+                        ></input>
+                    </div>
+                )}
                 <div className="form-group">
                     <label>Email</label>
                     <input
@@ -96,10 +108,6 @@ const Auth = () => {
                         value={formData.email}
                         onChange={handleChange}
                     ></input>
-                    {/* <small className="letter-spacing-4">
-                        <span className="text-success">important Info </span> /{" "}
-                        <span className="text-alert"> error message</span>
-                    </small> */}
                 </div>
                 <div className="form-group">
                     <label>Password</label>
@@ -110,13 +118,21 @@ const Auth = () => {
                         value={formData.password}
                         onChange={handleChange}
                     ></input>
-                    {/* <small className="letter-spacing-4">
-                        <span className="text-success">important Info </span> /{" "}
-                        <span className="text-alert"> error message</span>
-                    </small> */}
                 </div>
+                {isSignup && (
+                    <div className="form-group">
+                        <label>Confirm Password</label>
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="Confirm Password"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                        ></input>
+                    </div>
+                )}
                 <button className="btn btn-primary">
-                    {isSignup ? "REGISTER" : "LOGIN"}
+                    {isSignup ? "CREATE MY ACCOUNT" : "LOGIN"}
                 </button>
                 {!isSignup && (
                     <h3 className="text-center fs-400 ff-sans-light line-height-1">
@@ -133,7 +149,7 @@ const Auth = () => {
                         ? "Already have an account? "
                         : "Don't have an account? "}
                     <button className="text-accent" onClick={switchMode}>
-                        {isSignup ? "Sign in" : "Sign up"}
+                        {isSignup ? "Sign in" : "Create one"}
                     </button>
                 </p>
             </form>

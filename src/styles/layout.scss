@@ -9,7 +9,7 @@
     .page {
         //mobile displays
         text-align: center;
-        background-color: var(--color-accent);
+        background-color: var(--color-white);
         display: grid;
         place-content: center;
         padding-inline: 1rem;
@@ -30,6 +30,9 @@
     }
     .main-page {
         padding-block: 0.5em;
+        @media (min-width: 1000px) {
+            padding-inline: 2.5em;
+        }
     }
     /* ====== BUTTONS,LINKS,ICONS ====== */
     .btn {
@@ -89,8 +92,8 @@
         cursor: pointer;
         background-color: transparent;
         color: var(--color-dark);
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
 
         &:hover {
             transform: scale(1.1);
@@ -106,6 +109,7 @@
     .test {
         display: grid;
         place-content: center;
+        width: 100vw;
     }
 
     //medium, big screen displays

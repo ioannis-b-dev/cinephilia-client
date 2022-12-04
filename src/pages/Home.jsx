@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "../components";
-import images from "../constants/images";
 
 const Home = () => {
     return (
@@ -11,8 +10,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// style={{
-//     backgroundImage: `url(${images.background_image_1})`,
-// }}
-// className="app__home-page"

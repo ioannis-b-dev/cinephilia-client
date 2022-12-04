@@ -9,10 +9,9 @@ import {
 // import { RiDeleteBinLine as DeleteBinIcon } from "react-icons/ri";
 import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
 import { TiDelete as DeleteXIcon } from "react-icons/ti";
-import {
-    GiFilmProjector as LogoIcon,
-    GiHamburgerMenu as NavToggleIcon,
-} from "react-icons/gi";
+
+import { FiMenu as NavToggleIcon } from "react-icons/fi";
+import { GiFilmProjector as LogoIcon } from "react-icons/gi";
 import {
     MdNavigateBefore as PrevIcon,
     MdNavigateNext as NextIcon,

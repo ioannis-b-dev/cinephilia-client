@@ -1,0 +1,21 @@
+.link {
+    font-family: var(--ff-sans-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.nav-user {
+    text-transform: uppercase;
+    background-color: var(--color-dark);
+    padding: 0.2em 0.5em;
+    font-size: 16px;
+    .username {
+        color: var(--color-white);
+
+        &::after {
+            content: "|";
+            margin-inline: 0.5em;
+        }
+    }
+}

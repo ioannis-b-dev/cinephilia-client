@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
-import "./reset.css";
-import "./index.scss";
+import "./styles/reset.css";
+import "./styles/global.scss";
+import "./styles/layout.scss";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";

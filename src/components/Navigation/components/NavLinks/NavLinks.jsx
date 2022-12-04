@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext, useAuth } from "../../../../hooks";
-import "../../styles.scss";
+import "./NavLinks.scss";
 
 const NavLinks = ({ toggleMenu }) => {
     const { user, logout } = useAuth();

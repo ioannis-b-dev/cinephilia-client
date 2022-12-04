@@ -5,25 +5,4 @@
         align-items: center;
         gap: var(--gap, 2em);
     }
-    .link {
-        text-transform: uppercase;
-        font-family: var(--ff-sans-light);
-        font-size: 16px;
-        letter-spacing: 0.08em;
-    }
-
-    .nav-user {
-        background-color: var(--color-dark);
-        padding-inline: 0.5em;
-        padding-bottom: 1px;
-
-        .username {
-            color: var(--color-white);
-
-            &::after {
-                content: "|";
-                margin-inline: 0.5em;
-            }
-        }
-    }
 }

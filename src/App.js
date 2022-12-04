@@ -4,7 +4,7 @@ import { getFilmLists } from "./redux/actions/posts";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import { Home, Account, MainPage } from "./pages";
-import "./App.scss";
+
 const App = () => {
     const dispatch = useDispatch();
 
