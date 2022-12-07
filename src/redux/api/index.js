@@ -1,6 +1,6 @@
 import axios from "axios";
 const API = axios.create({
-    baseURL: "https://cinephiliaioannisdev.herokuapp.com/",
+    baseURL: "https://cinephillia-server-production.up.railway.app/",
 });
 
 API.interceptors.request.use((req) => {
