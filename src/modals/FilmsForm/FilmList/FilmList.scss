@@ -2,6 +2,7 @@
     margin: 0;
     display: grid;
     overflow: hidden;
+    grid-template-columns: auto;
     white-space: nowrap;
     display: flex;
     flex-direction: row;
