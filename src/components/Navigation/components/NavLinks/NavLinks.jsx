@@ -32,8 +32,7 @@ const NavLinks = ({ toggleMenu }) => {
                         My Lists
                     </Link>
 
-                    <Link
-                        to="/filmlists"
+                    <button
                         onClick={() => {
                             openFilmsModal();
                             toggleMenu(false);
@@ -41,7 +40,7 @@ const NavLinks = ({ toggleMenu }) => {
                         className="link"
                     >
                         Create List
-                    </Link>
+                    </button>
                 </>
             )}
 

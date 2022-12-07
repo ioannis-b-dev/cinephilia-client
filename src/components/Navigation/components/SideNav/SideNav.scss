@@ -1,7 +1,7 @@
 .sideNav {
     z-index: 100;
     width: 100vw;
-    background-color: rgba($color: #000000, $alpha: 0.7);
+    background-color: var(--color-accent);
     .links {
         height: 100%;
         border-bottom: 1px solid rgba($color: #fefefe, $alpha: 1);
@@ -11,6 +11,29 @@
         justify-content: space-evenly;
         h4 {
             color: white;
+        }
+    }
+    .link {
+        color: var(--color-white);
+        font-size: 22px;
+    }
+    .nav-user {
+        .link {
+            color: var(--color-white);
+            font-size: 16px;
+            background-color: var(--color-dark);
+        }
+        text-transform: uppercase;
+        background-color: var(--color-dark);
+        padding: 0.2em 0.5em;
+        font-size: 16px;
+        .username {
+            color: var(--color-white);
+
+            &::after {
+                content: "|";
+                margin-inline: 0.5em;
+            }
         }
     }
 }

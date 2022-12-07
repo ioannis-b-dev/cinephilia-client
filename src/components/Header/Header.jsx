@@ -7,41 +7,22 @@ const Header = () => {
     const { setShowMyLists } = useGlobalContext();
     return (
         <>
-            <div>
+            <div className="header">
                 <h1 className="text-accent fs-600 ff-sans-medium uppercase">
-                    Welcome to{" "}
+                    Welcome to
                     <span className="d-block text-dark fs-800 ff-sans-medium uppercase">
                         Cinephilia
                     </span>
                 </h1>
-                <p>Create and Share filmlists between cinema enthusiasts.</p>
+                <p>A social media platform based on ImDb API</p>
                 <p>
-                    The website is currently in alpha version. I would
-                    appreciate your feedback regarding bugs and issues you
-                    encountered as well as UI/UX suggestions
+                    <span className="text-accent">Create</span> and{" "}
+                    <span className="text-accent">Share</span> filmlists with
+                    cinema enthusiasts.
                 </p>
-                <p>
-                    You can find more information here:{" "}
-                    <a
-                        className="text-accent"
-                        href="https://docs.google.com/document/d/13uTtDNneqUeKxxEhbl6E96ClrYs23f1zUNjlEmSfFQk/edit?usp=sharing"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Its not a virus
-                    </a>
-                </p>
-            </div>
-
-            <div className="test-it">
-                <button
-                    className="btn bg-transparent"
-                    onClick={() => setShowMyLists(true)}
-                >
-                    <Link to={user ? "/filmlists" : "/account"}>
-                        Get Started
-                    </Link>
-                </button>
+                <Link className="btn" to={user ? "/filmlists" : "/account"}>
+                    Get Started
+                </Link>
             </div>
         </>
     );

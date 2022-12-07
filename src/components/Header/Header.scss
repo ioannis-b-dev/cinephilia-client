@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    p {
+        font-size: 22px;
+    }
+    .btn {
+        font-weight: 700;
+        margin-top: 1em;
+        align-self: flex-start;
+        display: flex;
+        font-size: 16px;
+        border-radius: 0.5em;
+        border: 1px solid var(--color-accent);
+        color: var(--color-accent);
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        &:hover {
+            background-color: var(--color-white);
+            color: var(--color-accent);
+        }
+    }
+    @media (max-width: 45rem) {
+        .btn {
+            align-self: center;
+        }
+    }
+}

@@ -16,7 +16,7 @@ const SideNav = ({ isMobileView, isMenuOpen, toggleMenu, yoffset }) => {
             animate={{
                 height: isMenuOpen ? `calc(100vh - ${yoffset}px)` : "0",
             }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
         >
             <NavLinks />
         </motion.div>
