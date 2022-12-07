@@ -13,6 +13,12 @@
         align-items: center;
         gap: 0.5em;
         margin-bottom: 1em;
+
+        &__legend {
+            letter-spacing: 0em;
+            text-align: center;
+            color: #2c2a29c9;
+        }
     }
     .form {
         display: flex;

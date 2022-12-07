@@ -14,7 +14,7 @@ const Header = () => {
                         Cinephilia
                     </span>
                 </h1>
-                <p>A social media platform based on ImDb API</p>
+                <p>A social media platform based on Imdb API</p>
                 <p>
                     <span className="text-accent">Create</span> and{" "}
                     <span className="text-accent">Share</span> filmlists with

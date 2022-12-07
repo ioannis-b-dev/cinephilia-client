@@ -32,7 +32,7 @@ const CTA = ({ creator, listId }) => {
             {(user?.userObject?._id === creator ||
                 user?.userObject?.sub === creator) && (
                 <>
-                    <EditIcon className="icon" />
+                    {/* <EditIcon className="icon" /> */}
                     <DeleteBinIcon className="icon" onClick={openModal} />
                 </>
             )}

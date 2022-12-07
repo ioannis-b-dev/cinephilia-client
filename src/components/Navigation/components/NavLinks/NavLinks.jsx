@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGlobalContext, useAuth } from "../../../../hooks";
+
 import "./NavLinks.scss";
 
 const NavLinks = ({ toggleMenu }) => {
+    const navigate = useNavigate();
     const { user, logout } = useAuth();
     const { setShowMyLists, openFilmsModal } = useGlobalContext();
+    const handleCreate = () => {
+        navigate("/filmlists");
+        openFilmsModal();
+        toggleMenu(false);
+    };
     return (
         <div className="links">
             <Link
@@ -32,13 +39,7 @@ const NavLinks = ({ toggleMenu }) => {
                         My Lists
                     </Link>
 
-                    <button
-                        onClick={() => {
-                            openFilmsModal();
-                            toggleMenu(false);
-                        }}
-                        className="link"
-                    >
+                    <button onClick={handleCreate} className="link text-accent">
                         Create List
                     </button>
                 </>

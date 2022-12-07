@@ -79,7 +79,7 @@ const Auth = () => {
                 <h1 className="header__title fs-600 ff-sans-light">
                     {isSignup ? "REGISTER" : "LOGIN"}
                 </h1>
-                <p className="header__legend letter-spacing-4 text-center">
+                <p className="header__legend">
                     {isSignup
                         ? "Please fill in the information below: "
                         : "Please enter your email and password"}
