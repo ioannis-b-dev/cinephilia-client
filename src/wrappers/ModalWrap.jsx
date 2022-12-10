@@ -10,7 +10,7 @@ const ModalWrap = (Component, cTitle) =>
                     <div className="modal__header">
                         <h3>{cTitle}</h3>
                         <DeleteXIcon
-                            className="icon"
+                            className="icon test"
                             onClick={props.closeModal}
                         />
                     </div>

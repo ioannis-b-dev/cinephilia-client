@@ -1,11 +1,10 @@
-.authentication-form {
+.auth {
     display: flex;
     flex-direction: column;
     padding-block: 3em;
     background-color: var(--color-white);
     width: 100vw;
     max-width: 450px;
-    // box-shadow: 0px 0px 5px rgba($color: #1f1e1e, $alpha: 0.5);
     .header {
         letter-spacing: 0.2em;
         display: flex;

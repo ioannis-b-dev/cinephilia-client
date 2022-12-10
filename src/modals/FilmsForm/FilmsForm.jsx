@@ -97,7 +97,7 @@ const FilmsForm = ({ closeModal }) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit} className="app__listform ">
+        <Form onSubmit={handleSubmit} className="listform ">
             <InputText
                 name="listTitle"
                 type="text"

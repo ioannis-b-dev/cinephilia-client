@@ -34,23 +34,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-/* <TopMenu
-                user={user}
-                logout={logout}
-                isMobileView={isMobileView}
-                toggleMenu={setIsMenuOpen}
-                isMenuOpen={isMenuOpen}
-                openFilmsModal={openFilmsModal}
-                setShowMyLists={setShowMyLists}
-            /> */
-
-/* <SideMenu
-                user={user}
-                logout={logout}
-                isMobileView={isMobileView}
-                toggleMenu={setIsMenuOpen}
-                isMenuOpen={isMenuOpen}
-                openFilmsModal={openFilmsModal}
-                setShowMyLists={setShowMyLists}
-            /> */

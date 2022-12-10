@@ -8,6 +8,7 @@ const MainPage = () => {
     const dispatch = useDispatch();
     const { showFilmsForm, closeFilmsModal, closeFilmAddModal, showFilmAdd } =
         useGlobalContext();
+
     useEffect(() => {
         dispatch(getFilmLists());
     });

@@ -1,0 +1,39 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8em;
+    line-height: 1;
+    background-color: whitesmoke;
+    border-radius: 0.1em 0 0 0.1em;
+    padding: 0.5em;
+    font-size: 12px;
+    border: 1px solid black;
+    grid-row: 2;
+
+    &-desc {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5em;
+    }
+    &-cta {
+        margin-top: auto;
+        display: flex;
+        gap: 1em;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    @media (min-width: 45rem) {
+        grid-row: 1;
+        border-right: none;
+        padding: 1.5em;
+        &-desc {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5em;
+        }
+    }
+}

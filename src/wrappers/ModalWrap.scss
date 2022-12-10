@@ -13,29 +13,29 @@
 
 .modal__container {
     background-color: rgb(255, 251, 251);
-    border-radius: 0;
-    border: 2px solid #1c1b1b;
-    min-width: 35vw;
-    padding: 1em;
+    min-width: calc(min(100vw, 450px));
+    border-radius: 2px;
+    padding: 2em;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .modal__header {
-    margin: 0.5em 0.5em 0em 0.5em;
+    padding: 0.1em 1.2em;
     color: #1c1b1b;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    letter-spacing: 0.1em;
-    font-size: 18px;
-    box-shadow: 0px 0px 2px rgba($color: #1f1e1e, $alpha: 0.8),
-        0px 0px 15px rgba($color: #1f1e1e, $alpha: 0.1);
-    h3 {
-        margin-left: auto;
-        margin-right: auto;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgba($color: #1f1e1e, $alpha: 0.3);
+    .test {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
     }
 }
 .modal__body {
-    margin: 0.5em 0.5em;
+    margin-block: 0.5em;
 }

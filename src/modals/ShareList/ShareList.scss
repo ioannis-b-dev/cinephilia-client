@@ -1,0 +1,13 @@
+.sharelist {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    padding-block: 1em;
+
+    button {
+        svg {
+            width: 34px;
+            height: 34px;
+        }
+    }
+}
