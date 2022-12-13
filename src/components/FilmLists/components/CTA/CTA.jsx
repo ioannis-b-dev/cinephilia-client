@@ -13,6 +13,7 @@ import ShareList from "../../../../modals/ShareList/ShareList";
 const CTA = ({ creator, listId }) => {
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [showShareList, setShowShareList] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);
     const { user } = useAuth();
     const dispatch = useDispatch();
 
@@ -32,7 +33,10 @@ const CTA = ({ creator, listId }) => {
     };
     return (
         <div className="info-cta">
-            <LikeIcon className="icon" />
+            <LikeIcon
+                className={`icon ${isLiked && "filled"}`}
+                onClick={() => setIsLiked(!isLiked)}
+            />
             <ShareIcon
                 className="icon"
                 onClick={() => setShowShareList(true)}
