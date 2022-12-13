@@ -13,12 +13,15 @@ import { createFilmList, updateFilmList } from "../../redux/actions/posts";
 
 import ModalWrap from "../../wrappers/ModalWrap";
 import { InputText } from "../../common/Form";
+import { Alert } from "../../common";
 const FilmsForm = ({ closeModal }) => {
     //HOOKS
     const isInitialLoad = useRef(false);
     const dispatch = useDispatch();
     const { currentId, setCurrentId } = useGlobalContext();
     const { movieData, isError, getFilmData } = useImdbAPI();
+    const [alert, setAlert] = useState({ msg: "", type: "danger" });
+    const alertRef = useRef();
     const currentFilmList = useSelector((state) =>
         currentId ? state.posts.find((list) => list._id === currentId) : null
     );
@@ -54,7 +57,14 @@ const FilmsForm = ({ closeModal }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        if (filmListData.films.length === 0) {
+            setAlert({
+                msg: "You need at least 1 film for your list",
+                type: "danger",
+            });
+            alertRef.current.show();
+            return;
+        }
         if (currentId) {
             dispatch(
                 updateFilmList(currentId, {
@@ -133,6 +143,7 @@ const FilmsForm = ({ closeModal }) => {
             >
                 Submit List
             </Button>
+            <Alert ref={alertRef} message={alert.msg} type={alert.type} />
         </Form>
     );
 };
