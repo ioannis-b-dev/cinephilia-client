@@ -12,7 +12,6 @@
     "d3": "^7.6.1",
     "framer-motion": "^7.5.2",
     "jwt-decode": "^3.1.2",
-    "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -23,6 +22,7 @@
     "react-share": "^4.4.1",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "sass": "^1.62.1",
     "swiper": "^8.3.2",
     "thunk": "^0.0.1",
     "web-vitals": "^2.1.4"
