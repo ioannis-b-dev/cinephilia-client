@@ -1,6 +1,6 @@
 import axios from "axios";
 const API = axios.create({
-  baseURL: "https://cinephillia-server-production-ddb3.up.railway.app/",
+  baseURL: "https://test-5n4i.onrender.com/",
 });
 
 API.interceptors.request.use((req) => {
